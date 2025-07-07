@@ -4,7 +4,6 @@ from hospital.models import *
 
 User = get_user_model()
 
-# Create your models here.
 class Direction(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='directions')
     hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, related_name='direction')
@@ -18,5 +17,3 @@ class Direction(models.Model):
     estimated_time = models.IntegerField(verbose_name='예상 소요 시간(분)')
     estimated_cost = models.IntegerField(verbose_name='예상 비용(원)')
     distance = models.FloatField(verbose_name='거리(km)')
-    
-    requested_at = models.IntegerField(verbose_name='요청 시간')

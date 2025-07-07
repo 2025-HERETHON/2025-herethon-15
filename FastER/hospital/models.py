@@ -1,6 +1,8 @@
 from django.db import models
+import os
+from uuid import uuid4
+from django.utils import timezone
 
-# Create your models here.
 class Specialty(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
@@ -23,7 +25,6 @@ class Hospital(models.Model):
     def __str__(self):
         return self.name
 
-
 class HospitalStatus(models.Model):
     CONGESTION_CHOICES = [
         ('매우 혼잡', '매우 혼잡'),
@@ -32,6 +33,7 @@ class HospitalStatus(models.Model):
         ('여유', '여유'),
         ('매우 여유', '매우 여유')
     ]
+
     hospital = models.OneToOneField(Hospital, on_delete=models.CASCADE, related_name='status')
     #공통 필드 
     congestion = models.CharField(max_length=10, choices=CONGESTION_CHOICES)  
@@ -39,12 +41,3 @@ class HospitalStatus(models.Model):
     available_beds = models.IntegerField(max_length=50)
     #실시간 대기인원(증상별 병원 찾기)
     waiting_count = models.IntegerField(max_length=50)
-
-
-    # def __str__(self):
-    
-
-
-
-
-
