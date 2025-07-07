@@ -3,26 +3,27 @@ import os
 from uuid import uuid4
 from django.utils import timezone
 
-def upload_filepath(instance, filename):
-    today_str = timezone.now().strftime("%Y%m%d")
-    file_basename = os.path.basename(filename)
-    return f'{instance._meta.model_name}/{today_str}/{str(uuid4())}_{file_basename}'
-
-
-class Hospital(models.Model):
-    name = models.CharField(max_length=50)
-    address = models.CharField(max_length=1000)
-    hos_lat = models.FloatField(verbose_name='위도')
-    hos_lng = models.FloatField(verbose_name='경도')
-    phone = models.CharField(max_length=11, verbose_name='전화번호')
-    is_emergency = models.BooleanField(verbose_name='응급실 여부')
-    open_24 = models.BooleanField(verbose_name='24시간 운영여부')
-    nightcare = models.BooleanField(verbose_name='야간진료여부')
-    image = models.ImageField(upload_to=upload_filepath, blank=True)
+class Specialty(models.Model):
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
-    
+
+class Hospital(models.Model):
+    name = models.CharField(max_length=255)
+    address = models.CharField(max_length=500)
+    hos_lat = models.FloatField(verbose_name='위도')
+    hos_lng = models.FloatField(verbose_name='경도')
+    phone = models.CharField(max_length=20)
+    is_emergency = models.BooleanField(default=False, verbose_name='응급실 여부')
+    open_24 = models.BooleanField(default=False, verbose_name='24시간 운영여부')
+    nightcare = models.BooleanField(default=False, verbose_name='야간진료여부')
+    business_hour = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='hospital_images/', null=True, blank=True)
+    specialties = models.ManyToManyField(Specialty, related_name='hospitals') #N:M으로 연결
+
+    def __str__(self):
+        return self.name
 
 class HospitalStatus(models.Model):
     CONGESTION_CHOICES = [
@@ -33,6 +34,10 @@ class HospitalStatus(models.Model):
         ('매우 여유', '매우 여유')
     ]
 
-    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, related_name='status')
-    congestion = models.CharField(max_length=10, choices=CONGESTION_CHOICES, verbose_name='혼잡도')
-    available_beds = models.CharField(max_length=10)
+    hospital = models.OneToOneField(Hospital, on_delete=models.CASCADE, related_name='status')
+    #공통 필드 
+    congestion = models.CharField(max_length=10, choices=CONGESTION_CHOICES)  
+    #실시간 병상정보(응급실 바로 찾기)
+    available_beds = models.IntegerField(max_length=50)
+    #실시간 대기인원(증상별 병원 찾기)
+    waiting_count = models.IntegerField(max_length=50)
