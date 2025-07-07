@@ -1,7 +1,4 @@
 from django.db import models
-import os
-from uuid import uuid4
-from django.utils import timezone
 
 class Specialty(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -18,7 +15,12 @@ class Hospital(models.Model):
     is_emergency = models.BooleanField(default=False, verbose_name='응급실 여부')
     open_24 = models.BooleanField(default=False, verbose_name='24시간 운영여부')
     nightcare = models.BooleanField(default=False, verbose_name='야간진료여부')
-    business_hour = models.CharField(max_length=200)
+
+    # business_hour을 opening_time, closing_time 분할
+    opening_time = models.CharField(max_length=10, verbose_name='개업 시간')
+    closing_time = models.CharField(max_length=10, verbose_name='폐업 시간')
+    # business_hour = models.CharField(max_length=200)
+
     image = models.ImageField(upload_to='hospital_images/', null=True, blank=True)
     specialties = models.ManyToManyField(Specialty, related_name='hospitals') #N:M으로 연결
 
@@ -38,6 +40,6 @@ class HospitalStatus(models.Model):
     #공통 필드 
     congestion = models.CharField(max_length=10, choices=CONGESTION_CHOICES)  
     #실시간 병상정보(응급실 바로 찾기)
-    available_beds = models.IntegerField(max_length=50)
+    available_beds = models.IntegerField()
     #실시간 대기인원(증상별 병원 찾기)
-    waiting_count = models.IntegerField(max_length=50)
+    waiting_count = models.IntegerField()

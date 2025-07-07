@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from hospital.models import Hospital 
+from hospital.models import *
 
 # Create your models here.
 class User(AbstractUser):
@@ -13,6 +13,7 @@ class User(AbstractUser):
 
     # 인증 기준 필드 변경
     USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 
     def __str__(self):
         return self.email 
@@ -26,17 +27,13 @@ class Symptom(models.Model):
         ('INFECT', '감염성/열'),
         ('ETC', '기타 증상'),
     ]
-    symptom_category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='symptoms')
-    description = models.CharField(max_length=255)
-    created_at = models.DateTimeField(auto_now_add=True)
+    symptom_keyword = models.CharField(max_length=100)
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
+    specialties = models.ManyToManyField(Specialty, related_name='linked_keywords')
+    
+    #user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='symptoms')
+    #description = models.CharField(max_length=255)
+    #created_at = models.DateTimeField(auto_now_add=True)
 
-    # def __str__(self):
-
-class VisitHistory(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='visit_histories')
-    hospital = models.ForeignKey(Hospital, on_delete=models.SET_NULL, null=True, related_name='visit_histories')
-    via_emergency = models.BooleanField(default=False)
-    visited_at = models.DateTimeField()
-
-    # def __str__(self):
+    def __str__(self):
+        return self.symptom_keyword
