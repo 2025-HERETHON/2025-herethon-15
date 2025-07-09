@@ -14,6 +14,7 @@ def symptom_map_view(request):
     return render(request, "map/symptom_map.html", {"category": category}) #증상 별 병원 찾기 템플릿
 
 #병원 목록 API
+
 #1. 응급실 전용 
 def emergency_hospitals(request):
     hospitals = Hospital.objects.filter(is_emergency=True)
