@@ -13,6 +13,7 @@ class User(AbstractUser):
 
     # 인증 기준 필드 변경
     USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username'] 
 
     def __str__(self):
         return self.email 
