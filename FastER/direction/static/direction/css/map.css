@@ -438,11 +438,23 @@ body {
   margin-bottom: 10px;
 }
 
-.arrival strong,
-.price strong {
-  font-size: 18px;
-  font-weight: bold;
-  margin-left: 4px;
+.taxi-info {
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.taxi-km {
+  color: var(--gray_02, #8c8c8c);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 2px;
 }
 
 .badge {
@@ -454,8 +466,23 @@ body {
   margin-left: 8px;
 }
 
-.price {
+.arrival {
+  color: var(--black, #000);
+  font-family: Pretendard;
   font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.price {
+  color: var(--gray_02, #8c8c8c);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: right;
 }
 
 .main-call-container {

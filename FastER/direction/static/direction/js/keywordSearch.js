@@ -1,4 +1,3 @@
-// 지도 기본 설정
 var mapContainer = document.getElementById("map"),
   mapOption = {
     center: new kakao.maps.LatLng(37.566826, 126.9786567),
@@ -12,11 +11,13 @@ var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
 var currentSearchResults = []; // 현재 리스트에 보이는 검색 결과 저장
 
-var imageSrc = "/static/direction/images/pin_1.svg"; // 이미지 경로
+var imageSrc = "/static/images/pin_1.svg"; // 이미지 경로
 var imageSize = new kakao.maps.Size(40, 40); // 마커 이미지 크기
 var imageOption = { offset: new kakao.maps.Point(20, 40) }; // 중심 좌표
 
 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+
+//showNearbyEmergencyHospitals(map)
 
 // 리스트 업데이트 (입력시 자동)
 document.getElementById("keyword").addEventListener("input", function () {
@@ -80,10 +81,7 @@ function updateList(places) {
 
     // 클릭하면 리스트 숨기고 지도 이동 + 확대 + 인포윈도우
     itemEl.addEventListener("click", function () {
-      removeMarkers();
-      var position = new kakao.maps.LatLng(place.y, place.x);
-      var marker = addMarker(position, place);
-      markers.push(marker);
+      var position = new kakao.maps.LatLng(place.y - 0.001, place.x);
 
       // 지도 이동 및 확대
       map.panTo(position);
@@ -114,7 +112,6 @@ function addMarker(position, place) {
   });
 
   marker.setMap(map);
-  markers.push(marker);
 
   //마커 클릭 시 이벤트
   kakao.maps.event.addListener(marker, "click", function () {
@@ -133,6 +130,11 @@ function addMarker(position, place) {
     var newLat = pos.getLat() - 0.001;
     var newLng = pos.getLng();
     map.panTo(new kakao.maps.LatLng(newLat, newLng));
+
+    const loadBtn = document.querySelector(".load-btn");
+    loadBtn.setAttribute("data-lat", pos.getLat());
+    loadBtn.setAttribute("data-lng", pos.getLng());
+    loadBtn.setAttribute("data-title", place.place_name);
   });
 
   return marker;
@@ -175,3 +177,71 @@ kakao.maps.event.addListener(map, "click", function () {
     marker.setMap(map);
   });
 });
+
+// 1. 거리 계산 함수 (Haversine)
+// function getDistance(lat1, lng1, lat2, lng2) {
+//   const R = 6371; // km
+//   const dLat = (lat2 - lat1) * (Math.PI / 180);
+//   const dLng = (lng2 - lng1) * (Math.PI / 180);
+//   const a =
+//     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+//     Math.cos(lat1 * (Math.PI / 180)) *
+//       Math.cos(lat2 * (Math.PI / 180)) *
+//       Math.sin(dLng / 2) *
+//       Math.sin(dLng / 2);
+//   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+//   return R * c;
+// }
+
+// // 2. 현재 위치 기반 응급실 마커 표시
+// function showNearbyEmergencyHospitals(map) {
+//   if (!navigator.geolocation) {
+//     alert("위치 정보를 지원하지 않는 브라우저입니다.");
+//     return;
+//   }
+
+//   navigator.geolocation.getCurrentPosition(function (position) {
+//     const lat = position.coords.latitude;
+//     const lng = position.coords.longitude;
+
+//     // 지도 중심 설정
+//     const userLoc = new kakao.maps.LatLng(lat, lng);
+//     map.setCenter(userLoc);
+
+//     // 사용자 위치 마커
+//     new kakao.maps.Marker({
+//       map,
+//       position: userLoc,
+//       title: "내 위치",
+//     });
+//     console.log("병원 데이터 요청 URL:", "/api/hospitals/");
+//     // 3. 병원 데이터 불러오기
+//     fetch("/hospital/api/hospitals/")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         data.hospitals.forEach((hsp) => {
+//           // 4. 응급실 + 거리 5km 이하
+//           const dist = getDistance(lat, lng, hsp.hos_lat, hsp.hos_lng);
+//           if (hsp.is_emergency && dist <= 5) {
+//             const marker = new kakao.maps.Marker({
+//               map,
+//               position: new kakao.maps.LatLng(hsp.hos_lat, hsp.hos_lng),
+//               title: hsp.name,
+//               image: markerImage,
+//             });
+
+//             // 5. 마커 클릭 시 상세 정보 표시
+//             kakao.maps.event.addListener(marker, "click", function () {
+//               document.getElementById("hsp-title").textContent = hsp.name;
+//               document.getElementById("hsp-location").textContent = hsp.address;
+//               document.getElementById("call-num").textContent = hsp.phone;
+//               document.querySelector(".load-btn").dataset.lat = hsp.hos_lat;
+//               document.querySelector(".load-btn").dataset.lng = hsp.hos_lng;
+//               document.querySelector(".load-btn").dataset.title = hsp.name;
+//               document.getElementById("info-container").style.bottom = "0px";
+//             });
+//           }
+//         });
+//       });
+//   });
+// }

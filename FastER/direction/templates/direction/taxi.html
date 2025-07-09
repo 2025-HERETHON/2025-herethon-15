@@ -83,14 +83,10 @@
         </svg>
       </header>
       <!-- 검색 입력창 -->
-      <section>
+      <section class="start-end-overlay">
         <div class="map-overlay">
-          <input
-            id="keyword"
-            type="text"
-            placeholder="병원 이름, 주소, 진료과 검색"
-            class="search-input"
-          />
+          <p class="start-end">출발 |</p>
+          <p id="start-value" class="start-end-value">드림빌</p>
           <svg
             class="voice"
             xmlns="http://www.w3.org/2000/svg"
@@ -113,132 +109,121 @@
               stroke-linejoin="round"
             />
           </svg>
+          <svg
+            class="map-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="20"
+            viewBox="0 0 21 20"
+            fill="none"
+          >
+            <path
+              d="M1 4.9591V18.3902L6.87611 15.0324L13.5917 18.3902L19.4678 15.0324V1.60132L13.5917 4.9591L6.87611 1.60132L1 4.9591Z"
+              stroke="#FF9901"
+              stroke-width="1.67889"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6.87695 1.60132V15.0324"
+              stroke="#FF9901"
+              stroke-width="1.67889"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M13.5918 4.95923V18.3903"
+              stroke="#FF9901"
+              stroke-width="1.67889"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
-        <ul id="placesList" class="places-list"></ul>
+        <div class="map-overlay">
+          <p class="start-end">도착 |</p>
+          <p id="end-value" class="start-end-value">
+            고려대학교 안암병원권역응급의료센터
+          </p>
+          <svg
+            class="voice"
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="22"
+            viewBox="0 0 17 22"
+            fill="none"
+          >
+            <path
+              d="M11.8578 4.7873C11.8578 2.98418 10.3961 1.52246 8.59297 1.52246C6.78985 1.52246 5.32812 2.98418 5.32812 4.7873V10.8506C5.32812 12.6537 6.78985 14.1154 8.59297 14.1154C10.3961 14.1154 11.8578 12.6537 11.8578 10.8506V4.7873Z"
+              stroke="#8C8C8C"
+              stroke-width="1.86562"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M1.5957 10.3848C1.5957 14.2485 4.72809 17.3809 8.5918 17.3809M8.5918 17.3809C12.4555 17.3809 15.5879 14.2485 15.5879 10.3848M8.5918 17.3809V20.1793"
+              stroke="#8C8C8C"
+              stroke-width="1.86562"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <svg
+            class="map-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="20"
+            viewBox="0 0 21 20"
+            fill="none"
+          >
+            <path
+              d="M1 4.9591V18.3902L6.87611 15.0324L13.5917 18.3902L19.4678 15.0324V1.60132L13.5917 4.9591L6.87611 1.60132L1 4.9591Z"
+              stroke="#FF9901"
+              stroke-width="1.67889"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6.87695 1.60132V15.0324"
+              stroke="#FF9901"
+              stroke-width="1.67889"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M13.5918 4.95923V18.3903"
+              stroke="#FF9901"
+              stroke-width="1.67889"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
       </section>
-      <!-- 필터 버튼 영역 -->
-      <section id="category" class="filter-container">
-        <button id="BK9" data-order="0" class="filter-btn">
-          야간진료 가능
-        </button>
-        <button id="CS2" data-order="1" class="filter-btn">24시간 운영</button>
-        <button id="HP8" data-order="2" class="filter-btn">진료중</button>
-        <button id="PM9" data-order="3" class="filter-btn">응급실</button>
-        <button id="PO3" data-order="4" class="filter-btn">전문의 상주</button>
-        <button id="CS2" data-order="5" class="filter-btn">편의점</button>
-        <!-- 필요한 만큼 계속 추가 가능 -->
-      </section>
-      <!-- 병원 정보 영역-->
+      <!-- 도착 정보 영역-->
       <section id="info-container" class="info-container">
-        <button class="info-btn"></button>
-        <div class="hsp-container">
-          <div class="hsp-info">
-            <div class="hsp-info-text">
-              <div>
-                <h1 id="hsp-title" class="hsp-title">고려대학교 안암병원</h1>
-                <p id="hsp-location" class="hsp-location">
-                  서울 성북구 고려대로 73
-                </p>
-              </div>
-              <button class="type-btn">
-                소화기 내과
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="6"
-                  viewBox="0 0 9 6"
-                  fill="none"
-                >
-                  <path
-                    d="M0.720703 1.57519L4.49512 5.34961L8.26953 1.5752"
-                    stroke="#FF9901"
-                    stroke-width="1.25814"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <div class="drop-down-box">
-                  <div class="drop-down">내과</div>
-                  <div class="drop-down">가정의학과</div>
-                  <div class="drop-down">응급의학과</div>
-                </div>
-              </button>
-              <img />
+        <div class="info-taxi">
+          <div class="info-taxi-call">
+            <div class="arrival">
+              도착까지 약 <strong id="taxi-info" class="taxi-info">15</strong>분
+              <strong class="taxi-km">(15km)</strong>
             </div>
-
-            <div class="hsp-info-call">
-              <h1 id="call-num" class="call-num">1577-0083</h1>
-              <button class="call-btn">전화걸기</button>
+            <div class="price">
+              예상 금액 <strong class="taxi-info">8,000원</strong>
             </div>
           </div>
-
-          <div>
-            <div class="info-summary">
-              <div class="info-item">
-                <p class="info-label">대기 현황</p>
-                <p class="info-value wait">2명</p>
-              </div>
-              <div class="info-item">
-                <p class="info-label">교통 혼잡도</p>
-                <p class="info-value traffic">보통</p>
-              </div>
-              <div class="info-item">
-                <p class="info-label">운영시간</p>
-                <p class="info-value time">8:30~17:30</p>
-              </div>
-            </div>
+          <div class="main-call-container">
+            <button class="main-call-btn">택시 앱에서 호출하기</button>
+            <p class="sub-detail">카카오T 앱으로 연결됩니다.</p>
           </div>
-
-          <div class="load-info">
-            <button class="load-btn" data-lat="" data-lng="" data-title="">
-              길찾기
+          <div class="premium-call">
+            <p class="premium-text">응급 우선 배차 + 빠른 기사 연결</p>
+            <button class="premium-btn">
+              <span class="highlight">금액의 10% 더 내고 패스트 호출하기</span>
             </button>
-            <div class="load-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="23"
-                height="23"
-                viewBox="0 0 23 23"
-                fill="none"
-              >
-                <path
-                  d="M11.6465 21.3047C17.1693 21.3047 21.6465 16.8275 21.6465 11.3047C21.6465 5.78184 17.1693 1.30469 11.6465 1.30469C6.12364 1.30469 1.64648 5.78184 1.64648 11.3047C1.64648 16.8275 6.12364 21.3047 11.6465 21.3047Z"
-                  stroke="#D5D5D5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.6465 7.30469V11.3047"
-                  stroke="#D5D5D5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M11.6465 15.3047H11.6565"
-                  stroke="#D5D5D5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="23"
-                height="22"
-                viewBox="0 0 23 22"
-                fill="none"
-              >
-                <path
-                  d="M11.334 1.79492L14.424 8.05492L21.334 9.06492L16.334 13.9349L17.514 20.8149L11.334 17.5649L5.15398 20.8149L6.33398 13.9349L1.33398 9.06492L8.24398 8.05492L11.334 1.79492Z"
-                  stroke="#D5D5D5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
+            <p class="sub-detail">
+              약 3분거리 주변 택시에 호출 가능하며, 결제는 현장에서만
+              가능합니다.
+            </p>
           </div>
         </div>
       </section>
@@ -247,15 +232,8 @@
     </main>
 
     <!-- 카카오 지도 SDK -->
-    <script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6da30244de7da15dcbc0f412b90d075&libraries=services,geometry"
-    ></script>
-
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6da30244de7da15dcbc0f412b90d075&libraries=services"></script>
+    <script src="{% static 'direction/js/taxiRoute.js' %}"></script>
     <!-- JS 코드 분리 -->
-    <!--<script src="{% static 'js/mapMarkers.js' %}"></script>-->
-    <script src="{% static 'direction/js/dropDown.js' %}"></script>
-    <script src="{% static 'direction/js/keywordSearch.js' %}"></script>
-    <script src="{% static 'direction/js/locationLoad.js' %}"></script>
   </body>
 </html>
