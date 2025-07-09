@@ -41,3 +41,14 @@ class VisitHistory(models.Model):
     visited_at = models.DateTimeField()
 
     # def __str__(self):
+
+#검색창
+class SearchHistory(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='search_histories')
+    keyword = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    #병원 선택 여부 기록 
+    selected_hospital=models.ForeignKey('hospital.Hospital', on_delete=models.SET_NULL,
+                                        null=True, blank=True, related_name='selected_histories')
+    
