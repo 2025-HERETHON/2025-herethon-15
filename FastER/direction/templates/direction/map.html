@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>지도 서비스</title>
-    <link rel="stylesheet" href="{% static 'css/map.css' %}" />
+    <link rel="stylesheet" href="{% static 'direction/css/map.css' %}" />
   </head>
   <body>
     <main class="map-container">
@@ -83,35 +83,40 @@
         </svg>
       </header>
       <!-- 검색 입력창 -->
-      <section class="map-overlay">
-        <input
-          type="text"
-          placeholder="병원 이름, 주소, 진료과 검색"
-          class="search-input"
-        />
-        <svg
-          class="voice"
-          xmlns="http://www.w3.org/2000/svg"
-          width="17"
-          height="22"
-          viewBox="0 0 17 22"
-          fill="none"
-        >
-          <path
-            d="M11.8578 4.7873C11.8578 2.98418 10.3961 1.52246 8.59297 1.52246C6.78985 1.52246 5.32812 2.98418 5.32812 4.7873V10.8506C5.32812 12.6537 6.78985 14.1154 8.59297 14.1154C10.3961 14.1154 11.8578 12.6537 11.8578 10.8506V4.7873Z"
-            stroke="#8C8C8C"
-            stroke-width="1.86562"
-            stroke-linejoin="round"
+      <section>
+        <div class="map-overlay">
+          <input
+            id="keyword"
+            type="text"
+            placeholder="병원 이름, 주소, 진료과 검색"
+            class="search-input"
           />
-          <path
-            d="M1.5957 10.3848C1.5957 14.2485 4.72809 17.3809 8.5918 17.3809M8.5918 17.3809C12.4555 17.3809 15.5879 14.2485 15.5879 10.3848M8.5918 17.3809V20.1793"
-            stroke="#8C8C8C"
-            stroke-width="1.86562"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+          <svg
+            class="voice"
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="22"
+            viewBox="0 0 17 22"
+            fill="none"
+          >
+            <path
+              d="M11.8578 4.7873C11.8578 2.98418 10.3961 1.52246 8.59297 1.52246C6.78985 1.52246 5.32812 2.98418 5.32812 4.7873V10.8506C5.32812 12.6537 6.78985 14.1154 8.59297 14.1154C10.3961 14.1154 11.8578 12.6537 11.8578 10.8506V4.7873Z"
+              stroke="#8C8C8C"
+              stroke-width="1.86562"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M1.5957 10.3848C1.5957 14.2485 4.72809 17.3809 8.5918 17.3809M8.5918 17.3809C12.4555 17.3809 15.5879 14.2485 15.5879 10.3848M8.5918 17.3809V20.1793"
+              stroke="#8C8C8C"
+              stroke-width="1.86562"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <ul id="placesList" class="places-list"></ul>
       </section>
+      <!-- 필터 버튼 영역 -->
       <section id="category" class="filter-container">
         <button id="BK9" data-order="0" class="filter-btn">
           야간진료 가능
@@ -123,14 +128,17 @@
         <button id="CS2" data-order="5" class="filter-btn">편의점</button>
         <!-- 필요한 만큼 계속 추가 가능 -->
       </section>
+      <!-- 병원 정보 영역-->
       <section id="info-container" class="info-container">
         <button class="info-btn"></button>
         <div class="hsp-container">
           <div class="hsp-info">
             <div class="hsp-info-text">
               <div>
-                <h1 class="hsp-title">고려대학교 안암병원</h1>
-                <p class="hsp-location">서울 성북구 고려대로 73</p>
+                <h1 id="hsp-title" class="hsp-title">고려대학교 안암병원</h1>
+                <p id="hsp-location" class="hsp-location">
+                  서울 성북구 고려대로 73
+                </p>
               </div>
               <button class="type-btn">
                 소화기 내과
@@ -149,12 +157,17 @@
                     stroke-linejoin="round"
                   />
                 </svg>
+                <div class="drop-down-box">
+                  <div class="drop-down">내과</div>
+                  <div class="drop-down">가정의학과</div>
+                  <div class="drop-down">응급의학과</div>
+                </div>
               </button>
               <img />
             </div>
 
             <div class="hsp-info-call">
-              <h1 class="call-num">1577-0083</h1>
+              <h1 id="call-num" class="call-num">1577-0083</h1>
               <button class="call-btn">전화걸기</button>
             </div>
           </div>
@@ -232,9 +245,13 @@
     </main>
 
     <!-- 카카오 지도 SDK -->
-    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c6da30244de7da15dcbc0f412b90d075"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6da30244de7da15dcbc0f412b90d075&libraries=services,geometry"
+    ></script>
 
     <!-- JS 코드 분리 -->
-    <script src="{% static 'js/mapMarkers.js' %}"></script>
+    <script src="{% static 'direction/js/dropDown.js' %}"></script>
+    <script src="{% static 'direction/js/keywordSearch.js' %}"></script>
   </body>
 </html>

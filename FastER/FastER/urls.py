@@ -26,5 +26,4 @@ urlpatterns = [
     path('', include('accounts.urls')),
     path('hospital/', include('hospital.urls')),
     path('direction/', include('direction.urls')),
-    #ath('', views.index, name='map'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
