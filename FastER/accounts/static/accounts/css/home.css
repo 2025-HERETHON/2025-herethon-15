@@ -1,0 +1,143 @@
+.Container {
+  position: relative;
+  margin: 0 auto;
+  width: 375px;
+  height: 100vh;
+  background: var(--Background, #f4f4f4);
+  display: flex;
+  flex-direction: column;
+}
+
+.Menu {
+  width: 18px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-left: 19.53px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.Logo {
+  position: relative;
+  top: 60px;
+  width: 257.14px;
+  height: 49.73px;
+}
+
+.Title {
+  color: var(--black, #000);
+  text-align: center;
+
+  /* pre_m_24 */
+  font-family: Pretendard;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  position: relative;
+  top: 78px;
+}
+
+.Character {
+  position: relative;
+  margin-top: 102px;
+
+  #character {
+    width: 225.396px;
+    height: 225.396px;
+    flex-shrink: 0;
+    aspect-ratio: 225.4/225.4;
+  }
+}
+
+.Btn1 {
+  width: 334.892px;
+  height: 73px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--main, #ff7200);
+  color: var(--white, #fff);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 26.72px;
+  cursor: pointer;
+
+  /* pre_b_24 */
+  font-family: Pretendard;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.Btn2 {
+  width: 334.892px;
+  height: 73px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid var(--main, #ff7200);
+  background: var(--white, #fff);
+  color: var(--main, #ff7200);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 13px;
+  cursor: pointer;
+
+  /* pre_b_24 */
+  font-family: Pretendard;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.SubText {
+  display: flex;
+  justify-content: center;
+  gap: 33px;
+  margin-top: 17px;
+}
+
+.SearchText1 {
+  color: var(--main, #ff7200);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+
+  #searchText1 {
+    position: relative;
+    top: 3px;
+    height: 16.156px;
+  }
+}
+
+.SearchText2 {
+  color: var(--main, #ff7200);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+
+  #searchText2 {
+    position: relative;
+    top: 4px;
+  }
+}

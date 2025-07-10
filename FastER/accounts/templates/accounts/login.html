@@ -1,20 +1,89 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <h2>로그인</h2>
-        <form method="POST" action="{% url 'accounts:login' %}">
-        {% csrf_token %} {{ form.as_p }}
-        <button type="submit">로그인</button>
-        </form>
-        <p>
-        <a href="{% url 'accounts:signup' %}"
-            >아직 회원이 아니신가요? 회원가입 하러 가기</a
-        >
-        </p>
-    </body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}" />
+    <title>FastER</title>
+  </head>
+  <body>
+    <div class="Container">
+      <div class="Menu">
+        <img src="{% static 'accounts/images/menu.svg' %}" id="menu" />
+      </div>
+      <div class="Logo">
+        <img src="{% static 'accounts/images/logo.svg' %}" id="logo" />
+      </div>
+      <div class="Title">로그인</div>
+      <div class="LoginBox">
+        <div class="LoginTitle">이메일</div>
+        <input
+          id="emailInput"
+          type="text"
+          placeholder="이메일을 입력해 주세요"
+        />
+        <div id="emailError" class="Error-Message">
+          올바른 이메일 형식으로 작성해 주세요
+        </div>
+      </div>
+      <div class="LoginBox">
+        <div class="LoginTitle">비밀번호</div>
+        <input
+          id="pwInput"
+          type="password"
+          placeholder="영문, 숫자, 특수문자 포함 5~20자를 입력해 주세요"
+        />
+        <img
+          src="{% static 'accounts/images/eye-off.svg' %}"
+          class="togglePw"
+          id="eyeOff"
+          alt="비밀번호 보기"
+        />
+        <img
+          src="{% static 'accounts/images/eye-on.svg' %}"
+          class="togglePw"
+          id="eyeOn"
+          alt="비밀번호 보기"
+        />
+        <div id="pwError" class="Error-Message">
+          비밀번호가 일치하지 않습니다
+        </div>
+      </div>
+      <div class="SubText">
+        <div class="SubText1">
+          <input type="checkbox" id="check1" class="check-hidden" />
+          <label for="check1" class="check-label">자동로그인</label>
+        </div>
+        <div class="SubText2">
+          아이디 찾기
+          <img
+            src="{% static 'accounts/images/subLoginLine.svg' %}"
+            id="subLoginLine"
+          />
+          비밀번호 찾기
+        </div>
+      </div>
+      <div class="Btn1" id="btn1">로그인</div>
+      <div class="Btn2" id="btn2">회원가입</div>
+      <div class="SnsLogin">
+        <div class="SnsTitle">SNS 계정 로그인</div>
+        <div class="SnsImage">
+          <img
+            src="{% static 'accounts/images/google.svg' %}"
+            class="snsImage"
+          />
+          <img
+            src="{% static 'accounts/images/kakao.svg' %}"
+            class="snsImage"
+          />
+          <img
+            src=".{% static 'accounts/images/naver.svg' %}"
+            class="snsImage"
+          />
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'accounts/js/login.js' %}"></script>
+  </body>
 </html>
