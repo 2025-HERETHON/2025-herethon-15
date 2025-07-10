@@ -6,7 +6,7 @@ from .models import *
 from .forms import *
 
 def map(request):
-    return render(request, 'map.html')
+    return render(request, 'direction/map.html')
 
 # 로그인
 def signup(request):

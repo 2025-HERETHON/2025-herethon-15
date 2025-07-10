@@ -1,11 +1,46 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from .models import Hospital, Specialty, HospitalStatus
+import json
 
 def map_view(request):
-    return render(request, 'direction/map.html')
+    hospitals = Hospital.objects.all()
+    print(f"병원 개수: {len(hospitals)}")
+    specialties = Specialty.objects.all()
+
+    hospitals_json = [
+        {
+            'id': h.id,
+            'name': h.name,
+            'address': h.address,
+            'hos_lat': h.hos_lat,
+            'hos_lng': h.hos_lng,
+            'phone': h.phone,
+            'is_emergency': h.is_emergency,
+            'open_24': h.open_24,
+            'nightcare': h.nightcare,
+            'opening_time': h.opening_time,
+            'closing_time': h.closing_time,
+            'image': h.image.url if h.image else None,
+            'specialties': [s.name for s in h.specialties.all()],
+            'status': {
+            'congestion': getattr(h.status, 'congestion', '정보 없음'),
+            'available_beds': getattr(h.status, 'available_beds', 0),
+            'waiting_count': getattr(h.status, 'waiting_count', 0),
+        } if h.status else None
+        }
+        for h in hospitals
+    ]
+
+    hospitals_json_str = json.dumps(hospitals_json, ensure_ascii=True)
+
+    return render(request, 'direction/map.html', {
+        'hospitals': hospitals,
+        'specialties': specialties,
+        'hospitals_json': hospitals_json_str
+    })
 
 def taxi_view(request):
     return render(request, 'direction/taxi.html')

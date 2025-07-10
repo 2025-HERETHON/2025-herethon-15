@@ -8,6 +8,26 @@
     <link rel="stylesheet" href="{% static 'direction/css/map.css' %}" />
   </head>
   <body>
+    <script id="hospital-data"
+    type="application/json"
+    data-json="{{ hospitals_json }}"></script>
+
+    <script>
+      let hospitalData = [];
+    
+      try {
+        const raw = document.getElementById("hospital-data").dataset.json;
+        if (raw && raw.trim()) {
+          hospitalData = JSON.parse(raw);
+          console.log("✅ 병원 데이터 파싱 성공", hospitalData);
+        } else {
+          console.warn("⚠ 병원 데이터 비어 있음");
+        }
+      } catch (e) {
+        console.error("❌ 병원 데이터 JSON 파싱 실패:", e);
+      }
+    </script>
+
     <main class="map-container">
       <header>
         <svg
@@ -141,7 +161,7 @@
                 </p>
               </div>
               <button class="type-btn">
-                소화기 내과
+                소화기내과
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="9"
@@ -176,7 +196,7 @@
             <div class="info-summary">
               <div class="info-item">
                 <p class="info-label">대기 현황</p>
-                <p class="info-value wait">2명</p>
+                <p class="info-value wait"></p>
               </div>
               <div class="info-item">
                 <p class="info-label">교통 혼잡도</p>
@@ -253,7 +273,7 @@
     ></script>
 
     <!-- JS 코드 분리 -->
-    <!--<script src="{% static 'js/mapMarkers.js' %}"></script>-->
+    <script src="{% static 'direction/js/mapMarkers.js' %}"></script>
     <script src="{% static 'direction/js/dropDown.js' %}"></script>
     <script src="{% static 'direction/js/keywordSearch.js' %}"></script>
     <script src="{% static 'direction/js/locationLoad.js' %}"></script>
