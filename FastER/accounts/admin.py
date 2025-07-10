@@ -3,5 +3,3 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Symptom)
-admin.site.register(SearchHistory)
-admin.site.register(VisitHistory)

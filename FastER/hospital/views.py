@@ -29,6 +29,7 @@ def emergency_hospitals(request):
         "latitude": h.hos_lat,
         "longitude": h.hos_lng,
         "address": h.address,
+        "image": h.image
     } for h in hospitals]
 
     return JsonResponse({"success": True, "hospitals": data})
@@ -65,7 +66,7 @@ def filtered_hospitals(request):
 
 #병원 상세 조회 API
 def hospital_info(request, hospital_id):
-    hospital = Hospital.objects.get(id=hospital.id)
+    hospital = Hospital.objects.get(id=hospital_id)
 
     status = getattr(hospital, 'status', None)
 

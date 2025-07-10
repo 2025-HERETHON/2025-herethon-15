@@ -3,5 +3,7 @@ from .models import *
 
 # Register your models here.
 admin.site.register(Specialty)
-admin.site.register(Hospital)
+@admin.register(Hospital)
+class HospitalAdmin(admin.ModelAdmin):
+    filter_horizontal = ('specialties',)
 admin.site.register(HospitalStatus)
