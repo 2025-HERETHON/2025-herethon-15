@@ -3,15 +3,21 @@ import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from hospital.models import Hospital, Specialty, HospitalStatus
-import json
 
-def map_view(request):
+def hospitals_api(request):
     hospitals = Hospital.objects.all()
-    print(f"병원 개수: {len(hospitals)}")
-    specialties = Specialty.objects.all()
+    hospitals_json = []
+    for h in hospitals:
+        try:
+            status_data = {
+                'congestion': h.status.congestion,
+                'available_beds': h.status.available_beds,
+                'waiting_count': h.status.waiting_count,
+            }
+        except HospitalStatus.DoesNotExist:
+            status_data = None
 
-    hospitals_json = [
-        {
+        hospitals_json.append({
             'id': h.id,
             'name': h.name,
             'address': h.address,
@@ -20,26 +26,12 @@ def map_view(request):
             'phone': h.phone,
             'is_emergency': h.is_emergency,
             'nightcare': h.nightcare,
-            'start_hour': h.start_hour.strftime('%H:%M') if h.start_hour else None,
-            'end_hour': h.end_hour.strftime('%H:%M') if h.end_hour else None,
             'image': h.image.url if h.image else None,
             'specialties': [s.name for s in h.specialties.all()],
-            'status': {
-            'congestion': getattr(h.status, 'congestion', '정보 없음'),
-            'available_beds': getattr(h.status, 'available_beds', 0),
-            'waiting_count': getattr(h.status, 'waiting_count', 0),
-        } if h.status else None
-        }
-        for h in hospitals
-    ]
+            'status': status_data
+        })
 
-    hospitals_json_str = json.dumps(hospitals_json, ensure_ascii=True)
-
-    return render(request, 'direction/map.html', {
-        'hospitals': hospitals,
-        'specialties': specialties,
-        'hospitals_json': hospitals_json_str
-    })
+    return JsonResponse({'hospitals': hospitals_json})
 
 def taxi_view(request):
     return render(request, 'direction/taxi.html')
@@ -64,3 +56,9 @@ def get_kakao_route(request):
         response = requests.get(kakao_url, headers=headers, params=params)
 
         return JsonResponse(response.json())
+    
+def map_emr_view(request):
+    return render(request, 'direction/map_emr.html')
+
+def map_view(request):
+    return render(request, 'direction/map.html')
