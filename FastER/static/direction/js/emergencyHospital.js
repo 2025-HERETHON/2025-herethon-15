@@ -2,6 +2,7 @@ import { getDistance } from "./utils.js";
 
 let lastCenter = null;
 const MIN_DISTANCE_KM = 0.3;
+const MAX_RANGE = 5;
 
 export function showNearbyEmergencyHospitals(mapManager) {
   if (!navigator.geolocation) {
@@ -57,6 +58,13 @@ function fetchAndRenderHospitals(
   mapManager,
   options = { initialLoad: false, setBounds: false }
 ) {
+  const emrActive = document
+    .getElementById("emr-btn")
+    ?.classList.contains("active");
+  const nightActive = document
+    .getElementById("night-btn")
+    ?.classList.contains("active");
+
   fetch("/direction/api/hospitals/")
     .then((res) => res.json())
     .then((data) => {
@@ -64,9 +72,36 @@ function fetchAndRenderHospitals(
 
       if (options.initialLoad) {
         // 초기 로딩: 사용자 위치 기준 반경 5km 내 응급실 병원 모두
+
         nearbyHospitals = data.hospitals.filter((hsp) => {
           const dist = getDistance(lat, lng, hsp.hos_lat, hsp.hos_lng);
-          return hsp.is_emergency && dist <= 5;
+          const withinRange = options.initialLoad ? dist <= MAX_RANGE : true;
+
+          if (!withinRange) return false;
+
+          if (
+            document.getElementById("emr-btn") &&
+            !emrActive &&
+            hsp.is_emergency
+          ) {
+            // 응급실 버튼이 비활성화인데 병원이 응급실인 경우 제외
+            return false;
+          }
+          if (
+            document.getElementById("night-btn") &&
+            !nightActive &&
+            hsp.night
+          ) {
+            // 야간 버튼 비활성화인데 병원이 야간 운영이면 제외
+            return false;
+          }
+
+          if (!options.initialLoad) {
+            const pos = new kakao.maps.LatLng(hsp.hos_lat, hsp.hos_lng);
+            if (!mapManager.map.getBounds().contain(pos)) return false;
+          }
+
+          return true;
         });
       } else {
         // 이후 지도 이동: 현재 지도 영역 내 응급실 병원만 필터링

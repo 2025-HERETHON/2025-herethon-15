@@ -164,9 +164,9 @@ body {
 }
 
 .filter-btn.active {
-  background-color: #ff6b00;
+  background: #ff6b00;
   color: #fff;
-  border: none;
+  font-size: 14px;
 }
 
 .info-container {
@@ -226,7 +226,8 @@ body {
   background: none;
   border: 0;
   height: 30px;
-  width: 68px;
+  width: 48px;
+  text-align: left;
 }
 
 /* 주소 */
@@ -242,7 +243,7 @@ body {
 
 /* 병원 이미지 */
 .hsp-info-text img {
-  width: 69px;
+  min-width: 69px;
   height: 69px;
   border-radius: 10px;
   object-fit: cover;
@@ -252,7 +253,7 @@ body {
 }
 
 .hsp-info-call {
-  margin-top: 3px;
+  margin-top: 10px;
 }
 
 /* 전화번호 줄 */
@@ -328,7 +329,7 @@ body {
   text-align: center;
   border-top: 1px solid #d5d5d5;
   padding: 12px 0;
-  margin: 12px 0;
+  margin: 14px 0;
   margin-right: 20px;
 }
 
@@ -589,4 +590,13 @@ body {
 
 .places-list li:hover {
   background-color: #f0f0f0;
+}
+
+.hsp-text {
+  width: auto;
+}
+
+.hsp-text-btn-box {
+  display: flex;
+  gap: 5px;
 }

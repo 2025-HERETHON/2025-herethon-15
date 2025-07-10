@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const lng = this.dataset.lng;
       const title = this.dataset.title;
 
-      window.location.href = `/direction/taxi?lat=${lat}&lng=${lng}&title=${encodeURIComponent(
-        title
-      )}`;
+      const url = `${
+        window.location.origin
+      }/taxi?lat=${lat}&lng=${lng}&title=${encodeURIComponent(title)}`;
+      window.location.href = url;
     });
   } else {
     console.error(".load-btn 요소를 찾을 수 없습니다.");

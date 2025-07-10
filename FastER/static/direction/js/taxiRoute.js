@@ -25,7 +25,7 @@ function calculateTaxiFare(distanceKm) {
   }
 }
 
-function getRoute(origin, destination) {
+function getRoute(origin, destination, latNow, lngNow) {
   fetch(`/direction/route/?origin=${origin}&destination=${destination}`)
     .then((response) => response.json())
     .then((data) => {
@@ -64,7 +64,7 @@ function getRoute(origin, destination) {
       const polyline = new kakao.maps.Polyline({
         path: path,
         strokeWeight: 5,
-        strokeColor: "#FF0000",
+        strokeColor: "#D63C1E",
         strokeOpacity: 0.8,
         strokeStyle: "solid",
       });
@@ -72,7 +72,33 @@ function getRoute(origin, destination) {
       polyline.setMap(map);
 
       if (path.length > 0) {
-        map.setCenter(path[Math.floor(path.length / 2)]);
+        const bounds = new kakao.maps.LatLngBounds();
+        path.forEach((point) => bounds.extend(point));
+        map.setBounds(bounds);
+
+        // 출발지 마커
+        new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(latNow, lngNow),
+          map: map,
+          title: "출발지",
+          image: new kakao.maps.MarkerImage(
+            "/static/direction/images/pin_str.svg",
+            new kakao.maps.Size(40, 40),
+            { offset: new kakao.maps.Point(20, 40) }
+          ),
+        });
+
+        // 도착지 마커
+        new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(parseFloat(lat), parseFloat(lng)),
+          map: map,
+          title: "도착지",
+          image: new kakao.maps.MarkerImage(
+            "/static/direction/images/pin_emr.svg",
+            new kakao.maps.Size(40, 40),
+            { offset: new kakao.maps.Point(20, 40) }
+          ),
+        });
       }
 
       // 화면에 표시
@@ -105,7 +131,7 @@ window.addEventListener("load", () => {
         const lngNow = position.coords.longitude;
         const origin = `${lngNow},${latNow}`;
         const destination = `${lng},${lat}`;
-        getRoute(origin, destination);
+        getRoute(origin, destination, latNow, lngNow);
 
         // 현재 위치 주소 얻기
         const coord = new kakao.maps.LatLng(latNow, lngNow);
