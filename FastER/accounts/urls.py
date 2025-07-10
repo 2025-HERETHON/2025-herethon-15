@@ -8,4 +8,5 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('login/', login, name='login'),
     path('symptom/', symptom_search, name='symptom_search'),
+    path("search/history", SearchHistoryView.as_view(), name="search_history" )
 ]

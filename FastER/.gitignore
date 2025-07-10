@@ -3,6 +3,9 @@
 
 # Python 가상환경
 myvenv/
+newvenv/
+venv/
+env/
 
 # Python 캐시
 __pycache__/

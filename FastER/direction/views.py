@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Hospital, Specialty, HospitalStatus
+from hospital.models import Hospital, Specialty, HospitalStatus
 import json
 
 def map_view(request):
@@ -19,10 +19,9 @@ def map_view(request):
             'hos_lng': h.hos_lng,
             'phone': h.phone,
             'is_emergency': h.is_emergency,
-            'open_24': h.open_24,
             'nightcare': h.nightcare,
-            'opening_time': h.opening_time,
-            'closing_time': h.closing_time,
+            'start_hour': h.start_hour.strftime('%H:%M') if h.start_hour else None,
+            'end_hour': h.end_hour.strftime('%H:%M') if h.end_hour else None,
             'image': h.image.url if h.image else None,
             'specialties': [s.name for s in h.specialties.all()],
             'status': {
