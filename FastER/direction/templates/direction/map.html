@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="{% static 'direction/css/map.css' %}" />
   </head>
   <body>
-    <script id="hospital-data"
-    type="application/json"
-    data-json="{{ hospitals_json }}"></script>
+    <!--<script
+      id="hospital-data"
+      type="application/json"
+      data-json="{{ hospitals_json }}"
+    ></script>
 
     <script>
       let hospitalData = [];
-    
+
       try {
         const raw = document.getElementById("hospital-data").dataset.json;
         if (raw && raw.trim()) {
@@ -26,7 +28,7 @@
       } catch (e) {
         console.error("❌ 병원 데이터 JSON 파싱 실패:", e);
       }
-    </script>
+    </script>-->
 
     <main class="map-container">
       <header>
@@ -196,11 +198,11 @@
             <div class="info-summary">
               <div class="info-item">
                 <p class="info-label">대기 현황</p>
-                <p class="info-value wait"></p>
+                <p id="info-value-wait" class="info-value wait"></p>
               </div>
               <div class="info-item">
                 <p class="info-label">교통 혼잡도</p>
-                <p class="info-value traffic">보통</p>
+                <p id="info-value traffic" class="info-value traffic">보통</p>
               </div>
               <div class="info-item">
                 <p class="info-label">운영시간</p>
@@ -273,9 +275,11 @@
     ></script>
 
     <!-- JS 코드 분리 -->
-    <script src="{% static 'direction/js/mapMarkers.js' %}"></script>
     <script src="{% static 'direction/js/dropDown.js' %}"></script>
-    <script src="{% static 'direction/js/keywordSearch.js' %}"></script>
+    <script
+      type="module"
+      src="{% static 'direction/js/keywordSearch.js' %}"
+    ></script>
     <script src="{% static 'direction/js/locationLoad.js' %}"></script>
   </body>
 </html>

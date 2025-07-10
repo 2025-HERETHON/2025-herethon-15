@@ -10,8 +10,18 @@ def map_view(request):
     print(f"병원 개수: {len(hospitals)}")
     specialties = Specialty.objects.all()
 
-    hospitals_json = [
-        {
+    hospitals_json = []
+    for h in hospitals:
+        try:
+            status_data = {
+                'congestion': h.status.congestion,
+                'available_beds': h.status.available_beds,
+                'waiting_count': h.status.waiting_count,
+            }
+        except HospitalStatus.DoesNotExist:
+            status_data = None
+
+        hospitals_json.append({
             'id': h.id,
             'name': h.name,
             'address': h.address,
@@ -24,14 +34,8 @@ def map_view(request):
             'end_hour': h.end_hour.strftime('%H:%M') if h.end_hour else None,
             'image': h.image.url if h.image else None,
             'specialties': [s.name for s in h.specialties.all()],
-            'status': {
-            'congestion': getattr(h.status, 'congestion', '정보 없음'),
-            'available_beds': getattr(h.status, 'available_beds', 0),
-            'waiting_count': getattr(h.status, 'waiting_count', 0),
-        } if h.status else None
-        }
-        for h in hospitals
-    ]
+            'status': status_data
+        })
 
     hospitals_json_str = json.dumps(hospitals_json, ensure_ascii=True)
 
@@ -40,6 +44,35 @@ def map_view(request):
         'specialties': specialties,
         'hospitals_json': hospitals_json_str
     })
+
+def hospitals_api(request):
+    hospitals = Hospital.objects.all()
+    hospitals_json = []
+    for h in hospitals:
+        try:
+            status_data = {
+                'congestion': h.status.congestion,
+                'available_beds': h.status.available_beds,
+                'waiting_count': h.status.waiting_count,
+            }
+        except HospitalStatus.DoesNotExist:
+            status_data = None
+
+        hospitals_json.append({
+            'id': h.id,
+            'name': h.name,
+            'address': h.address,
+            'hos_lat': h.hos_lat,
+            'hos_lng': h.hos_lng,
+            'phone': h.phone,
+            'is_emergency': h.is_emergency,
+            'nightcare': h.nightcare,
+            'image': h.image.url if h.image else None,
+            'specialties': [s.name for s in h.specialties.all()],
+            'status': status_data
+        })
+
+    return JsonResponse({'hospitals': hospitals_json})
 
 def taxi_view(request):
     return render(request, 'direction/taxi.html')
