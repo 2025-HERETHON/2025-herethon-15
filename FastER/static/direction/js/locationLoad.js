@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const url = `${
         window.location.origin
-      }/taxi?lat=${lat}&lng=${lng}&title=${encodeURIComponent(title)}`;
+      }/direction/taxi?lat=${lat}&lng=${lng}&title=${encodeURIComponent(
+        title
+      )}`;
       window.location.href = url;
     });
   } else {

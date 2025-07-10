@@ -107,9 +107,26 @@ function fetchAndRenderHospitals(
         // 이후 지도 이동: 현재 지도 영역 내 응급실 병원만 필터링
         const bounds = mapManager.map.getBounds();
         nearbyHospitals = data.hospitals.filter((hsp) => {
-          if (!hsp.is_emergency) return false;
           const pos = new kakao.maps.LatLng(hsp.hos_lat, hsp.hos_lng);
-          return bounds.contain(pos);
+          if (!bounds.contain(pos)) return false;
+
+          if (
+            document.getElementById("emr-btn") &&
+            !emrActive &&
+            hsp.is_emergency
+          ) {
+            return false;
+          }
+
+          if (
+            document.getElementById("night-btn") &&
+            !nightActive &&
+            hsp.night
+          ) {
+            return false;
+          }
+
+          return true;
         });
       }
 
@@ -147,8 +164,6 @@ function fetchAndRenderHospitals(
           document.getElementById("hsp-title").textContent = hsp.name;
           document.getElementById("hsp-location").textContent = hsp.address;
           document.getElementById("call-num").textContent = hsp.phone;
-          document.getElementById("info-value-wait").textContent =
-            hsp.status?.waiting_count ?? "정보 없음";
 
           const loadBtn = document.querySelector(".load-btn");
           loadBtn.dataset.lat = hsp.hos_lat;

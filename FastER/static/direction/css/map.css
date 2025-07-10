@@ -226,6 +226,20 @@ body {
   background: none;
   border: 0;
   height: 30px;
+  width: 57px;
+  text-align: left;
+}
+
+.type-btn2 {
+  color: var(--serve_01, #ff9901);
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: none;
+  border: 0;
+  height: 30px;
   width: 48px;
   text-align: left;
 }
@@ -310,6 +324,7 @@ body {
 .load-info svg {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .load-info svg:nth-of-type(1) {
@@ -599,4 +614,19 @@ body {
 .hsp-text-btn-box {
   display: flex;
   gap: 5px;
+}
+
+#top-image {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: none;
+  margin-left: 32px;
+  margin-top: 125px;
+}
+
+#top-image.show {
+  display: block;
 }

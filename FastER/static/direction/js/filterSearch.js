@@ -1,4 +1,3 @@
-// filterSearch.js
 import { showNearbyEmergencyHospitals } from "./emergencyHospital.js";
 import { mapManager } from "./keywordSearch.js";
 
@@ -14,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lat: center.getLat(),
         lng: center.getLng(),
         reload: true,
+        setBounds: false,
       });
     });
   });
