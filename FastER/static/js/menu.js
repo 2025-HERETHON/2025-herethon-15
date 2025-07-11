@@ -1,7 +1,7 @@
-//로그인 페이지 이동
+/*//로그인 페이지 이동
 document.getElementById("logoutVer").addEventListener("click", () => {
   location.href = "/accounts/login/";
-});
+});*/
 
 //메뉴창 열릴 때 직전 페이지 저장
 sessionStorage.setItem("prePage", document.referrer || "main.html");
