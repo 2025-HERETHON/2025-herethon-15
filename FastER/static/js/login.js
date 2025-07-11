@@ -1,13 +1,3 @@
-//메뉴로 이동
-document.getElementById("menu").addEventListener("click", () => {
-  location.href = "/accounts/menu/";
-});
-
-//홈 이동
-document.getElementById("logo").addEventListener("click", () => {
-  location.href = "/accounts/home/";
-});
-
 const emailInput = document.getElementById("id_username");
 const loginBtn = document.getElementById("btn1");
 const emailErrorMsg = document.getElementById("emailError");
@@ -85,10 +75,10 @@ passwordInput.addEventListener("input", () => {
 eyeOff.addEventListener("click", () => {
   passwordInput.type = "text";
   eyeOff.style.display = "none";
-  eyeOn.style.display = "inline";
+  eyeOn.style.display = "block";
 });
 eyeOn.addEventListener("click", () => {
   passwordInput.type = "password";
   eyeOn.style.display = "none";
-  eyeOff.style.display = "inline";
+  eyeOff.style.display = "block";
 });
