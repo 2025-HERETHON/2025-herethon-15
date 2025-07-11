@@ -4,16 +4,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <title>FastER</title>
   </head>
   <body>
     <div class="Container">
       <div class="Menu">
-        <a href="{% url 'accounts:menu'%}"><img src="{% static 'accounts/images/menu.svg' %}" id="menu" /> </a>
+        <a href="{% url 'accounts:menu'%}"><img src="{% static 'images/menu.svg' %}" id="menu" /> </a>
       </div>
       <div class="Logo">
-        <img src="{% static 'accounts/images/logo.svg' %}" id="logo" />
+        <img src="{% static 'images/logo.svg' %}" id="logo" />
       </div>
       <div class="Title">로그인</div>
 
@@ -42,7 +42,7 @@
           <div class="SubText2">
             아이디 찾기
             <img
-              src="{% static 'accounts/images/subLoginLine.svg' %}"
+              src="{% static 'images/subLoginLine.svg' %}"
               id="subLoginLine"
             />
             비밀번호 찾기
@@ -58,15 +58,15 @@
         <div class="SnsTitle">SNS 계정 로그인</div>
         <div class="SnsImage">
           <img
-            src="{% static 'accounts/images/google.svg' %}"
+            src="{% static 'images/google.svg' %}"
             class="snsImage"
           />
           <img
-            src="{% static 'accounts/images/kakao.svg' %}"
+            src="{% static 'images/kakao.svg' %}"
             class="snsImage"
           />
           <img
-            src="{% static 'accounts/images/naver.svg' %}"
+            src="{% static 'images/naver.svg' %}"
             class="snsImage"
           />
         </div>
