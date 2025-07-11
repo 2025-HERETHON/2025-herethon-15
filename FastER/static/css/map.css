@@ -254,7 +254,9 @@ body {
   border: 0;
   height: 30px;
   width: 57px;
+  min-width: 57px;
   text-align: left;
+  margin-right: 8px;
 }
 
 .type-btn2 {
