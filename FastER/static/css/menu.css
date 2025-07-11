@@ -156,17 +156,20 @@ a {
 
 .UserName {
   display: flex;
+  position: relative;
   align-items: center;
   gap: 8px;
-  margin-left: 40px;
+  margin-left: 80px;
   margin-bottom: 20px;
 }
 
 .userIcon {
+  position: absolute;
   width: 30.732px;
   height: 30.732px;
   flex-shrink: 0;
-  margin-right: 5px;
+  left: -40px;
+  margin-top: 2px;
 }
 
 .userPointer {
