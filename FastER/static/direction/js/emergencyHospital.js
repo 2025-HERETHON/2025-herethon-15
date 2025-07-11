@@ -20,6 +20,7 @@ export function showNearbyEmergencyHospitals(mapManager) {
     // 내 위치 마커
     new kakao.maps.Marker({
       map: mapManager.map,
+      image: mapManager.heremarkerImage,
       position: userLoc,
       title: "내 위치",
     });
@@ -71,60 +72,31 @@ function fetchAndRenderHospitals(
       let nearbyHospitals = [];
 
       if (options.initialLoad) {
-        // 초기 로딩: 사용자 위치 기준 반경 5km 내 응급실 병원 모두
-
+        // 초기 로딩: 사용자 위치 기준 반경 5km 내 모든 병원 (필터 X)
         nearbyHospitals = data.hospitals.filter((hsp) => {
           const dist = getDistance(lat, lng, hsp.hos_lat, hsp.hos_lng);
-          const withinRange = options.initialLoad ? dist <= MAX_RANGE : true;
-
-          if (!withinRange) return false;
-
-          if (
-            document.getElementById("emr-btn") &&
-            !emrActive &&
-            hsp.is_emergency
-          ) {
-            // 응급실 버튼이 비활성화인데 병원이 응급실인 경우 제외
-            return false;
-          }
-          if (
-            document.getElementById("night-btn") &&
-            !nightActive &&
-            hsp.night
-          ) {
-            // 야간 버튼 비활성화인데 병원이 야간 운영이면 제외
-            return false;
-          }
-
-          if (!options.initialLoad) {
-            const pos = new kakao.maps.LatLng(hsp.hos_lat, hsp.hos_lng);
-            if (!mapManager.map.getBounds().contain(pos)) return false;
-          }
-
-          return true;
+          return dist <= MAX_RANGE; // ❗ 필터 없음
         });
       } else {
-        // 이후 지도 이동: 현재 지도 영역 내 응급실 병원만 필터링
+        // 필터 적용 (버튼 상태 기반)
         const bounds = mapManager.map.getBounds();
         nearbyHospitals = data.hospitals.filter((hsp) => {
           const pos = new kakao.maps.LatLng(hsp.hos_lat, hsp.hos_lng);
           if (!bounds.contain(pos)) return false;
 
           if (
-            document.getElementById("emr-btn") &&
-            !emrActive &&
-            hsp.is_emergency
-          ) {
+            document.getElementById("emr-btn")?.classList.contains("active") &&
+            !hsp.is_emergency
+          )
             return false;
-          }
 
           if (
-            document.getElementById("night-btn") &&
-            !nightActive &&
-            hsp.night
-          ) {
+            document
+              .getElementById("night-btn")
+              ?.classList.contains("active") &&
+            !hsp.nightcare
+          )
             return false;
-          }
 
           return true;
         });
@@ -147,10 +119,14 @@ function fetchAndRenderHospitals(
         const position = new kakao.maps.LatLng(hsp.hos_lat, hsp.hos_lng);
         bounds.extend(position);
 
+        const markerImage = hsp.is_emergency
+          ? mapManager.markerImage
+          : mapManager.basicmarkerImage;
+
         const marker = new kakao.maps.Marker({
           map: mapManager.map,
           position,
-          image: mapManager.markerImage,
+          image: markerImage,
           title: hsp.name,
         });
 
@@ -164,6 +140,11 @@ function fetchAndRenderHospitals(
           document.getElementById("hsp-title").textContent = hsp.name;
           document.getElementById("hsp-location").textContent = hsp.address;
           document.getElementById("call-num").textContent = hsp.phone;
+          document.getElementById(
+            "info-value-time"
+          ).textContent = `${hsp.start_hour}~${hsp.end_hour}`;
+          document.getElementById("hsp-img").src =
+            "/static/direction/images/pin_hos2.svg";
 
           const loadBtn = document.querySelector(".load-btn");
           loadBtn.dataset.lat = hsp.hos_lat;
