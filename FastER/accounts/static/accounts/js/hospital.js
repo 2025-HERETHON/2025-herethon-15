@@ -3,9 +3,14 @@ document.getElementById("menu").addEventListener("click", () => {
   location.href = "/accounts/menu/";
 });
 
+//홈 이동
+document.getElementById("logo").addEventListener("click", () => {
+  location.href = "/accounts/home/";
+});
+
 //병원 찾기 이동
 document.getElementById("recommendBtn").addEventListener("click", () => {
-  location.href = "/hospital/map_hos/";
+  location.href = "/direction/";
 });
 
 const input = document.getElementById("SymptomsInput");

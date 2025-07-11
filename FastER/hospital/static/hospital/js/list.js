@@ -3,6 +3,11 @@ document.getElementById("menu").addEventListener("click", () => {
   location.href = "/accounts/menu/";
 });
 
+//홈 이동
+document.getElementById("logo").addEventListener("click", () => {
+  location.href = "/accounts/home/";
+});
+
 const toggleBtn = document.getElementById("toggleDown");
 const optionBox = document.getElementById("optionBox");
 const options = document.querySelectorAll(".Option");

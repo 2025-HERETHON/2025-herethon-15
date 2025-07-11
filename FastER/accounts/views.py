@@ -46,7 +46,7 @@ def symptom_search(request):
             category = symptom.get_category_display()
             categorized_symptoms.setdefault(category, []).append(symptom.symptom_keyword)
 
-        return render(request, 'accounts/symptoms_search.html', {
+        return render(request, 'accounts/hospital.html', {
             'categorized_symptoms': categorized_symptoms
         })
 
