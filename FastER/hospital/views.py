@@ -25,7 +25,20 @@ def filtered_hospitals(request):
     if request.GET.get("open_now") == "true":
         current_time = now().time()
         hospitals = hospitals.filter(start_hour__lte=current_time, end_hour__gte=current_time)
+        
+    hospital_list = []
+    
+    for h in hospitals:
+        hospital_list.append({
+            "id": h.id,
+            "name": h.name,
+            "address": h.address,
+            "specialties": [s.name for s in h.specialties.all()],
+            "is_emergency": h.is_emergency,
+            "nightcare": h.nightcare,
+        })
 
+        return JsonResponse({"hospitals": hospital_list})
 
 #병원 상세 조회 API
 def hospital_info(request, hospital_id):
