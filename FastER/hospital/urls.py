@@ -12,6 +12,6 @@ urlpatterns = [
     path("info/<int:hospital_id>/", views.hospital_info, name="hospital_info"),
 
     
-    path('', views.map_hos_view, name='hospital'),
+    path('', views.map_hos_view, name='hospital_hos'),
     path("list/", views.hos_list_view, name="hos_list_view"),
 ]

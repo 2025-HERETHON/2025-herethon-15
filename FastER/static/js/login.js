@@ -37,7 +37,7 @@ loginBtn.addEventListener("click", () => {
   if (email === "faster1@gmail.com" && password === "fast123") {
     localStorage.setItem("isLoggedIn", "true");
     sessionStorage.setItem("justLoggedIn", "true");
-    location.href = "/accounts/menu/";
+    location.href = "/menu/";
   } else if (email === "faster1@gmail.com" && password !== "fast123") {
     pwErrorMsg.textContent = "비밀번호가 일치하지 않습니다.";
     pwErrorMsg.classList.add("visible");
