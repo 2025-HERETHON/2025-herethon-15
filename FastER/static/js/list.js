@@ -18,8 +18,8 @@ const btn3 = document.getElementById("PM9"); //즐겨찾기
 const title1 = document.querySelector(".Title"); //최근
 const title2 = document.querySelector(".Title-1"); //자주
 const title3 = document.querySelector(".Title-2"); //즐겨찾기
-const downIcon = "../images/toggleDown.svg";
-const upIcon = "../images/toggleUp.svg";
+const downIcon = "/static/images/toggleDown.svg";
+const upIcon = "/static/images/toggleUp.svg";
 const hospitalBox1 = document.querySelector(".HospitalBox1");
 const hospitalBox2 = document.querySelector(".HospitalBox2");
 
