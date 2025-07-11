@@ -37,3 +37,4 @@ class Symptom(models.Model):
 
     def __str__(self):
         return self.symptom_keyword
+

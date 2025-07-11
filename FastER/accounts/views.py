@@ -5,8 +5,12 @@ from django.db.models import Q
 from .models import *
 from .forms import *
 
+from django.http import JsonResponse
+from django.views import View
+import json
+
 def map(request):
-    return render(request, 'map.html')
+    return render(request, 'direction/map.html')
 
 # 로그인
 def signup(request):
@@ -69,3 +73,4 @@ def symptom_search(request):
             'not_found': not_found,
             'symptom': symptom_input
         })
+
