@@ -15,6 +15,9 @@ body {
   line-height: 1.5;
   -webkit-tap-highlight-color: transparent; /* 모바일 탭 하이라이트 제거 */
   overflow: hidden; /* 전체화면 지도 시 스크롤 제거 (필요 시 조절) */
+  width: 375px;
+  height: 812px;
+  margin: 0 auto;
 }
 
 /* 2. 지도 감싸는 전체 컨테이너 */

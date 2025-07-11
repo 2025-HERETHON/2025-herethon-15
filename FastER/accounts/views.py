@@ -12,6 +12,9 @@ import json
 def map(request):
     return render(request, 'direction/map.html')
 
+def menu(request):
+    return render(request, 'accounts/menu.html')
+
 # 로그인
 def signup(request):
     if request.method == 'GET':
@@ -33,7 +36,7 @@ def login(request):
     form = AuthenticationForm(request, request.POST)
     if form.is_valid():
         auth_login(request, form.user_cache)
-        return redirect('accounts:map')
+        return redirect('direction:map_view')
     return render(request, 'accounts/login.html', {'form': form})
 
 def symptom_search(request):
