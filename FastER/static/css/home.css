@@ -23,8 +23,12 @@ body {
   cursor: pointer;
 }
 
+#menu {
+  z-index: 4px;
+}
+
 main {
-  margin-top: -22px;
+  bottom: 20px;
   display: flex;
   flex-direction: column;
   text-align: center;

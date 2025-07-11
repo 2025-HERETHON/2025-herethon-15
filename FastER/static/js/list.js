@@ -20,8 +20,8 @@ const title2 = document.querySelector(".Title-1"); //자주
 const title3 = document.querySelector(".Title-2"); //즐겨찾기
 const downIcon = "../images/toggleDown.svg";
 const upIcon = "../images/toggleUp.svg";
-const hospitalBox1 = document.querySelectorAll(".HospitalBox");
-const hospitalBox2 = document.querySelectorAll(".HospitalBox");
+const hospitalBox1 = document.querySelector(".HospitalBox1");
+const hospitalBox2 = document.querySelector(".HospitalBox2");
 
 // toggleBtn 클릭 시 드롭다운 보이기/숨기기, 아이콘 변경
 toggleBtn.addEventListener("click", () => {
