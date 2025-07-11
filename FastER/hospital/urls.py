@@ -11,4 +11,6 @@ urlpatterns = [
     # 병원 상세 조회 API
     path("info/<int:hospital_id>/", views.hospital_info, name="hospital_info"),
 
+    
+    path('', views.map_hos_view, name='hospital'),
 ]

@@ -137,7 +137,7 @@ body {
   padding: 8px 12px;
   display: flex;
   overflow-x: auto;
-  gap: 8px;
+  gap: 9px;
   z-index: 2;
 }
 
@@ -149,7 +149,7 @@ body {
 /* 개별 필터 버튼 */
 .filter-btn {
   flex: 0 0 auto; /* 줄 바꿈 방지 */
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-size: 14px;
   border: 1px solid #e0e0e0;
   border-radius: 20px;
@@ -264,7 +264,7 @@ body {
   background: none;
   border: 0;
   height: 30px;
-  width: 48px;
+  min-width: 48px;
   text-align: left;
 }
 
@@ -282,6 +282,7 @@ body {
 /* 병원 이미지 */
 .hsp-info-text img {
   min-width: 69px;
+  width: 69px;
   height: 69px;
   border-radius: 10px;
   object-fit: cover;
@@ -653,4 +654,10 @@ body {
 
 #top-image.show {
   display: block;
+}
+
+#wait-num {
+  font-size: 10px;
+  margin-left: 3px;
+  font-weight: 400;
 }

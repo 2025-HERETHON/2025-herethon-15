@@ -143,8 +143,6 @@ function fetchAndRenderHospitals(
           document.getElementById(
             "info-value-time"
           ).textContent = `${hsp.start_hour}~${hsp.end_hour}`;
-          document.getElementById("hsp-img").src =
-            "/static/direction/images/pin_hos2.svg";
 
           const loadBtn = document.querySelector(".load-btn");
           loadBtn.dataset.lat = hsp.hos_lat;
