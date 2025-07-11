@@ -1,0 +1,97 @@
+[
+    {
+        "symptom_keyword": "복통",
+        "category": "GI",
+        "specialties": [
+        "소화기내과",
+        "내과",
+        "응급의학과"
+        ]
+    },
+    {
+        "symptom_keyword": "설사",
+        "category": "GI",
+        "specialties": [
+        "감염내과",
+        "소화기내과",
+        "내과",
+        "감염내과"
+        ]
+    },
+    {
+        "symptom_keyword": "기침",
+        "category": "RESP",
+        "specialties": [
+        "호흡기내과",
+        "내과",
+        "이비인후과"
+        ]
+    },
+    {
+        "symptom_keyword": "숨참",
+        "category": "RESP",
+        "specialties": [
+        "심장내과",
+        "호흡기내과",
+        "응급의학과"
+        ]
+    },
+    {
+        "symptom_keyword": "타박상",
+        "category": "TRAUMA",
+        "specialties": [
+        "정형외과",
+        "외과"
+        ]
+    },
+    {
+        "symptom_keyword": "골절 의심",
+        "category": "TRAUMA",
+        "specialties": [
+        "정형외과",
+        "응급의학과"
+        ]
+    },  {
+        "symptom_keyword": "발열",
+        "category": " INFECT",
+        "specialties": [
+        "감염내과",
+        "내과",
+        "응급의학과"
+        ]
+    },
+    {
+        "symptom_keyword": "오한",
+        "category": "INFECT",
+        "specialties": [
+        "감염내과",
+        "내과"
+        ]
+    },
+    {
+        "symptom_keyword": "오한",
+        "category": "INFECT",
+        "specialties": [
+        "감염내과",
+        "내과"
+        ]
+    },
+    {
+        "symptom_keyword": "가슴 통증",
+        "category": "ETC",
+        "specialties": [
+        "심장내과",
+        "흉부외과",
+        "응급의학과"
+        ]
+    },
+    {
+        "symptom_keyword": "두통",
+        "category": "ETC",
+        "specialties": [
+        "신경과",
+        "내과",
+        "응급의학과"
+        ]
+    }
+]
