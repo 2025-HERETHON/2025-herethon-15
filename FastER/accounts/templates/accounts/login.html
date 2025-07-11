@@ -10,7 +10,9 @@
   <body>
     <div class="Container">
       <div class="Menu">
-        <a href="{% url 'accounts:menu'%}"><img src="{% static 'images/menu.svg' %}" id="menu" /> </a>
+        <a href="{% url 'accounts:menu'%}"
+          ><img src="{% static 'images/menu.svg' %}" id="menu" />
+        </a>
       </div>
       <div class="Logo">
         <img src="{% static 'images/logo.svg' %}" id="logo" />
@@ -57,18 +59,9 @@
       <div class="SnsLogin">
         <div class="SnsTitle">SNS 계정 로그인</div>
         <div class="SnsImage">
-          <img
-            src="{% static 'images/google.svg' %}"
-            class="snsImage"
-          />
-          <img
-            src="{% static 'images/kakao.svg' %}"
-            class="snsImage"
-          />
-          <img
-            src="{% static 'images/naver.svg' %}"
-            class="snsImage"
-          />
+          <img src="{% static 'images/google.svg' %}" class="snsImage" />
+          <img src="{% static 'images/kakao.svg' %}" class="snsImage" />
+          <img src="{% static 'images/naver.svg' %}" class="snsImage" />
         </div>
       </div>
     </div>
