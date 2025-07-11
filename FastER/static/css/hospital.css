@@ -271,3 +271,7 @@ body {
   font-weight: 500;
   line-height: 39px;
 }
+
+a {
+  text-decoration: none;
+}
