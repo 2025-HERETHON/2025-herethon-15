@@ -75,4 +75,8 @@
   $ python manage.py migrate
   $ python manage.py runserver
   ```
+
+- **ERD**
+  <img width="1088" height="553" alt="스크린샷 2025-07-12 오전 3 39 42" src="https://github.com/user-attachments/assets/f1ce1dcc-8f5a-4ddf-9feb-9a1364f355a2" />
+
   <hr/>
