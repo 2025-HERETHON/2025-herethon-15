@@ -5,8 +5,18 @@ from django.db.models import Q
 from .models import *
 from .forms import *
 
+from django.http import JsonResponse
+from django.views import View
+import json
+
+def home(request):
+    return render(request, 'accounts/home.html')
+
 def map(request):
-    return render(request, 'map.html')
+    return render(request, 'direction/map.html')
+
+def menu(request):
+    return render(request, 'accounts/menu.html')
 
 # 로그인
 def signup(request):
@@ -29,7 +39,7 @@ def login(request):
     form = AuthenticationForm(request, request.POST)
     if form.is_valid():
         auth_login(request, form.user_cache)
-        return redirect('accounts:map')
+        return redirect('direction:map_view')
     return render(request, 'accounts/login.html', {'form': form})
 
 def symptom_search(request):
@@ -39,7 +49,7 @@ def symptom_search(request):
             category = symptom.get_category_display()
             categorized_symptoms.setdefault(category, []).append(symptom.symptom_keyword)
 
-        return render(request, 'accounts/symptoms_search.html', {
+        return render(request, 'accounts/hospital.html', {
             'categorized_symptoms': categorized_symptoms
         })
 
@@ -69,3 +79,4 @@ def symptom_search(request):
             'not_found': not_found,
             'symptom': symptom_input
         })
+

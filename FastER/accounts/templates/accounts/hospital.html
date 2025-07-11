@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/hospital.css' %}" />
+    <title>FastER</title>
+  </head>
+  <body>
+    <div class="Container">
+      <div class="Menu">
+        <img src="{% static 'images/menu.svg' %}" id="menu" />
+      </div>
+      <div class="Logo">
+        <img src="{% static 'images/logo.svg' %}" id="logo" />
+      </div>
+      <div class="Title">어떤 증상인가요?</div>
+      <div class="ListBox">
+        <input
+          id="SymptomsInput"
+          type="text"
+          placeholder="증상을 선택 및 입력해 주세요"
+          readonly
+        />
+        <div class="Dropdown" id="dropdown">
+          <div class="Option">직접 입력</div>
+
+          <div class="Category">소화기 증상</div>
+          <div class="Option">복통</div>
+          <div class="Option">설사</div>
+
+          <div class="Category">호흡기 증상</div>
+          <div class="Option">기침</div>
+          <div class="Option">숨참</div>
+
+          <div class="Category">외상/근골격</div>
+          <div class="Option">타박상</div>
+          <div class="Option">골절 의심</div>
+
+          <div class="Category">감염성/열</div>
+          <div class="Option">발열</div>
+          <div class="Option">오한</div>
+
+          <div class="Category">기타 증상</div>
+          <div class="Option">가슴 통증</div>
+          <div class="Option">두통</div>
+        </div>
+      </div>
+      <div class="SearchBtn" id="searchBtn">진료과 조회하기</div>
+      <div class="RecommendBox">
+        <div class="Recommend-dept">
+          <div class="RecommendTitle">추천 진료과</div>
+          <div class="Dept">응급실</div>
+          <div class="Dept">소화기 내과</div>
+          <div class="Dept">내과의원</div>
+        </div>
+        <div class="RecomendBtn" id="recommendBtn">병원 찾기</div>
+      </div>
+    </div>
+    <script src="{% static 'js/hospital.js' %}"></script>
+  </body>
+</html>

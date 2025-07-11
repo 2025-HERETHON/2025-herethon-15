@@ -5,13 +5,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>지도 서비스</title>
-    <link rel="stylesheet" href="{% static 'direction/css/map.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/map.css' %}" />
   </head>
   <body>
+    <!--<script
+      id="hospital-data"
+      type="application/json"
+      data-json="{{ hospitals_json }}"
+    ></script>
+
+    <script>
+      let hospitalData = [];
+
+      try {
+        const raw = document.getElementById("hospital-data").dataset.json;
+        if (raw && raw.trim()) {
+          hospitalData = JSON.parse(raw);
+          console.log("✅ 병원 데이터 파싱 성공", hospitalData);
+        } else {
+          console.warn("⚠ 병원 데이터 비어 있음");
+        }
+      } catch (e) {
+        console.error("❌ 병원 데이터 JSON 파싱 실패:", e);
+      }
+    </script>-->
+
+    <script>
+      //메뉴 페이지 이동
+      document.getElementById("menu").addEventListener("click", () => {
+        location.href = "/accounts/menu/";
+      });
+
+      //홈 이동
+      document.getElementById("logo").addEventListener("click", () => {
+        location.href = "/accounts/home/";
+      });
+    </script>
+
     <main class="map-container">
       <header>
         <svg
           class="menu"
+          id="menu"
           xmlns="http://www.w3.org/2000/svg"
           width="21"
           height="15"
@@ -42,6 +77,7 @@
         </svg>
         <svg
           class="logo"
+          id="logo"
           xmlns="http://www.w3.org/2000/svg"
           width="79"
           height="16"
@@ -118,52 +154,73 @@
       </section>
       <!-- 필터 버튼 영역 -->
       <section id="category" class="filter-container">
-        <button id="BK9" data-order="0" class="filter-btn">
-          야간진료 가능
+        <button id="night-btn" data-order="3" class="filter-btn">
+          야간진료
         </button>
-        <button id="CS2" data-order="1" class="filter-btn">24시간 운영</button>
-        <button id="HP8" data-order="2" class="filter-btn">진료중</button>
-        <button id="PM9" data-order="3" class="filter-btn">응급실</button>
-        <button id="PO3" data-order="4" class="filter-btn">전문의 상주</button>
-        <button id="CS2" data-order="5" class="filter-btn">편의점</button>
+        <button id="ing-btn" data-order="3" class="filter-btn">진료중</button>
+        <button id="emr-btn" data-order="3" class="filter-btn">응급실</button>
+        <button id="hos-filter-btn" data-order="3" class="filter-btn2">
+          진료과
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="6"
+            viewBox="0 0 10 6"
+            fill="none"
+          >
+            <path
+              d="M1.43945 4.96289L5.21387 1.18848L8.98828 4.96289"
+              stroke="white"
+              stroke-width="1.25814"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
         <!-- 필요한 만큼 계속 추가 가능 -->
       </section>
+      <img
+        id="top-image"
+        src="{% static 'images/hos-filter.svg' %}"
+      />
       <!-- 병원 정보 영역-->
       <section id="info-container" class="info-container">
         <button class="info-btn"></button>
         <div class="hsp-container">
           <div class="hsp-info">
             <div class="hsp-info-text">
-              <div>
-                <h1 id="hsp-title" class="hsp-title">고려대학교 안암병원</h1>
+              <div class="hsp-text">
+                <div class="hsp-text-btn-box">
+                  <h1 id="hsp-title" class="hsp-title">고려대학교 안암병원</h1>
+                  <button id="type-btn" class="type-btn">
+                    소화기 내과
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="6"
+                      viewBox="0 0 9 6"
+                      fill="none"
+                    >
+                      <path
+                        d="M0.720703 1.57519L4.49512 5.34961L8.26953 1.5752"
+                        stroke="#FF9901"
+                        stroke-width="1.25814"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <div class="drop-down-box">
+                      <div class="drop-down">내과</div>
+                      <div class="drop-down">가정의학과</div>
+                      <div class="drop-down">응급의학과</div>
+                    </div>
+                  </button>
+                </div>
                 <p id="hsp-location" class="hsp-location">
                   서울 성북구 고려대로 73
                 </p>
               </div>
-              <button class="type-btn">
-                소화기 내과
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="6"
-                  viewBox="0 0 9 6"
-                  fill="none"
-                >
-                  <path
-                    d="M0.720703 1.57519L4.49512 5.34961L8.26953 1.5752"
-                    stroke="#FF9901"
-                    stroke-width="1.25814"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <div class="drop-down-box">
-                  <div class="drop-down">내과</div>
-                  <div class="drop-down">가정의학과</div>
-                  <div class="drop-down">응급의학과</div>
-                </div>
-              </button>
-              <img />
+              <img id="hsp-img" src="/media/hospital_images/고려대병원.jpeg" />
             </div>
 
             <div class="hsp-info-call">
@@ -175,16 +232,18 @@
           <div>
             <div class="info-summary">
               <div class="info-item">
-                <p class="info-label">대기 현황</p>
-                <p class="info-value wait">2명</p>
+                <p class="info-label">실시간 병상정보</p>
+                <p id="info-value-wait" class="info-value wait">
+                  5병상<strong id="wait-num">여유</strong>
+                </p>
               </div>
               <div class="info-item">
                 <p class="info-label">교통 혼잡도</p>
-                <p class="info-value traffic">보통</p>
+                <p id="info-value traffic" class="info-value traffic">보통</p>
               </div>
               <div class="info-item">
                 <p class="info-label">운영시간</p>
-                <p class="info-value time">8:30~17:30</p>
+                <p id="info-value-time" class="info-value time">8:30~17:30</p>
               </div>
             </div>
           </div>
@@ -224,6 +283,8 @@
                 />
               </svg>
               <svg
+                id="star-btn"
+                class="star-btn"
                 xmlns="http://www.w3.org/2000/svg"
                 width="23"
                 height="22"
@@ -253,9 +314,15 @@
     ></script>
 
     <!-- JS 코드 분리 -->
-    <!--<script src="{% static 'js/mapMarkers.js' %}"></script>-->
-    <script src="{% static 'direction/js/dropDown.js' %}"></script>
-    <script src="{% static 'direction/js/keywordSearch.js' %}"></script>
-    <script src="{% static 'direction/js/locationLoad.js' %}"></script>
+    <script src="{% static 'js/dropDown.js' %}"></script>
+    <script
+      type="module"
+      src="{% static 'js/keywordSearch.js' %}"
+    ></script>
+    <script src="{% static 'js/locationLoad.js' %}"></script>
+    <script
+      type="module"
+      src="{% static 'js/filterSearch.js' %}"
+    ></script>
   </body>
 </html>

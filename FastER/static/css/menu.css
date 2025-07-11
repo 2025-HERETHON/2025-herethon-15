@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.Title a {
+  color: #ff7200;
+}
+
+.Container {
+  position: relative;
+  margin: 0 auto;
+  width: 375px;
+  height: 100vh;
+  background: var(--Background, #f4f4f4);
+  display: flex;
+  flex-direction: column;
+}
+
+.Close {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-left: 22px;
+    margin-top: 20px;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: left;
+  margin-top: 60px;
+}
+
+.Title {
+  color: var(--main, #ff7200);
+  margin-left: 40px;
+  cursor: pointer;
+
+  /* pre_m_24 */
+  font-family: Pretendard;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+hr {
+  display: flex;
+  width: 335px;
+  height: 0px;
+  flex-shrink: 0;
+  stroke-width: 0.5px;
+  stroke: var(--gray_02, #8c8c8c);
+  margin-bottom: 18px;
+}
+
+.List {
+  margin-left: 40px;
+  line-height: 52px;
+}
+
+.List a {
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+.Text1 {
+  color: var(--black, #000);
+  cursor: pointer;
+
+  /* pre_r_20 */
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+
+  #text1 {
+    width: 20.938px;
+    height: 28.416px;
+    flex-shrink: 0;
+    position: relative;
+    top: 5.8px;
+    margin-right: 5px;
+  }
+}
+
+.Text2 {
+  color: var(--black, #000);
+  cursor: pointer;
+
+  /* pre_r_20 */
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+
+  #text2 {
+    width: 20.938px;
+    height: 28.416px;
+    flex-shrink: 0;
+    position: relative;
+    top: 5.8px;
+    margin-right: 5px;
+  }
+}
+
+.Text3 {
+  color: var(--black, #000);
+  cursor: pointer;
+
+  /* pre_r_20 */
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+
+  #text3 {
+    width: 20.938px;
+    height: 28.416px;
+    flex-shrink: 0;
+    position: relative;
+    top: 5.8px;
+    margin-right: 5px;
+  }
+}
+
+.Text4 {
+  color: var(--black, #000);
+  cursor: pointer;
+
+  /* pre_r_20 */
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+
+  #text4 {
+    width: 24.304px;
+    height: 23.877px;
+    flex-shrink: 0;
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+  }
+}
+
+.UserName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.userIcon {
+  width: 30.732px;
+  height: 30.732px;
+  flex-shrink: 0;
+  margin-right: 5px;
+}
+
+.userPointer {
+  flex-shrink: 0;
+  position: relative;
+  margin-left: 150px;
+  top: 2px;
+}
+
+.userText {
+  color: var(--main, #ff7200);
+  margin-left: 40px;
+  cursor: pointer;
+  margin-left: 2px;
+
+  /* pre_m_24 */
+  font-family: Pretendard;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+      margin-bottom: 1px;
+}
+
+.bold {
+  font-weight: 700;
+}

@@ -1,0 +1,268 @@
+.Container {
+  position: relative;
+  margin: 0 auto;
+  width: 375px;
+  height: 100vh;
+  background: var(--Background, #f4f4f4);
+  display: flex;
+  flex-direction: column;
+}
+
+.Menu {
+  width: 18px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-left: 19.53px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.Logo {
+  position: absolute;
+  display: flex;
+  margin-left: 148.96px;
+  margin-top: 12px;
+
+  #logo {
+    width: 78.068px;
+    height: 15.098px;
+    flex-shrink: 0;
+  }
+}
+
+.Title {
+  color: var(--main, #ff7200);
+  text-align: center;
+  position: relative;
+  margin-top: 56.82px;
+
+  /* pre_b_24 */
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.ListBox {
+  margin: 0 auto;
+  margin-top: 36.88px;
+  position: relative;
+
+  #SymptomsInput {
+    width: 317px;
+    height: 37px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 0.9px solid var(--gray_01, #d5d5d5);
+    background: none;
+    padding-left: 17px;
+    outline: none;
+    margin-bottom: 7.67px;
+
+    /* pre_r_14 */
+    color: var(--gray_02, #8c8c8c);
+    font-family: Pretendard;
+    font-size: 13.3px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  #SymptomsInput::placeholder {
+    color: var(--gray_01, #d5d5d5);
+
+    /* pre_r_14 */
+    font-family: Pretendard;
+    font-size: 13.3px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  #SymptomsInput:focus {
+    border: 0.5px solid var(--main, #ff7200);
+  }
+}
+
+.Dropdown {
+  display: none;
+}
+
+.Dropdown.visible {
+  display: block;
+  position: absolute;
+  top: calc(100% + 4px); /* input 바로 아래 */
+  left: 0;
+  width: 335px;
+  height: 673px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 0.5px solid var(--gray_01, #d5d5d5);
+  background: var(--white, #fff);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+  padding-top: 2px;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  z-index: 10;
+  padding-bottom: 5px;
+}
+
+.Option {
+  margin: 0 auto;
+  width: 307px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 0.5px solid var(--gray_01, #d5d5d5);
+  background: var(--white, #fff);
+  color: var(--gray_02, #8c8c8c);
+  display: flex;
+  align-items: center;
+  margin-top: 3.7px;
+  padding-left: 17px;
+  cursor: pointer;
+
+  /* pre_r_14 */
+  font-family: Pretendard;
+  font-size: 13.3px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* 증상 선택 시 활성화 스타일 */
+.Option.selected {
+  border: 0.5px solid var(--serve_01, #ff9901);
+  background: var(--serve_01, #ff9901);
+  color: var(--white, #fff);
+}
+
+.Category {
+  color: var(--main, #ff7200);
+  margin-top: 16px;
+  margin-left: 11px;
+
+  /* pre_r_14 */
+  font-family: Pretendard;
+  font-size: 13.3px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.SearchBtn {
+  width: 337px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--gray_01, #d5d5d5);
+  color: var(--white, #fff);
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 4px;
+
+  /* pre_m_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.SearchBtn.after {
+  width: 337px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--main, #ff7200);
+  color: var(--white, #fff);
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  /* pre_m_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 39px;
+}
+
+.RecommendBox {
+  position: relative;
+  display: none;
+}
+
+.Recommend-dept {
+  position: relative;
+  margin: 0 auto;
+  width: 337px;
+  height: 210px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--white, #fff);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+  margin-top: 16px;
+  padding-top: 23px;
+  margin-bottom: 9px;
+}
+
+.RecommendTitle {
+  color: var(--gray_02, #8c8c8c);
+  text-align: center;
+  margin-bottom: 15px;
+
+  /* pre_m_18 */
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.Dept {
+  color: var(--main, #ff7200);
+  text-align: center;
+
+  /* pre_b_24 */
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2;
+}
+
+.RecomendBtn {
+  width: 337px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--main, #ff7200);
+  color: var(--white, #fff);
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 4px;
+
+  /* pre_m_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

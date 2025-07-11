@@ -3,6 +3,9 @@
 
 # Python 가상환경
 myvenv/
+newvenv/
+venv/
+env/
 
 # Python 캐시
 __pycache__/
@@ -19,7 +22,7 @@ __pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-media
+
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
