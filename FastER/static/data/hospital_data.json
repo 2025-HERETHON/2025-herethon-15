@@ -10,7 +10,7 @@
     "start_hour": "08:30",
     "end_hour": "17:30",
     "image": "",
-    "specialties": ""
+    "specialties": ["내과", "이비인후과"]
   },
   {
     "name": "성심백세안과의원",
@@ -23,7 +23,7 @@
     "start_hour": "10:00",
     "end_hour": "20:00",
     "image": "",
-    "specialties": ""
+    "specialties": ["내과", "이비인후과"]
   },
   {
     "name": "성신의원",
@@ -36,7 +36,7 @@
     "start_hour": "09:30",
     "end_hour": "18:30",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "아이사랑소아청소년과의원",
@@ -49,7 +49,7 @@
     "start_hour": "09:00",
     "end_hour": "18:00",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "아미치과의원",
@@ -62,7 +62,7 @@
     "start_hour": "09:00",
     "end_hour": "18:00",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "연세효상의원",
@@ -75,7 +75,7 @@
     "start_hour": "09:00",
     "end_hour": "20:00",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "연세삼성산부인과의원",
@@ -88,7 +88,7 @@
     "start_hour": "10:00",
     "end_hour": "18:30",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "고운숨결내과의원",
@@ -101,7 +101,7 @@
     "start_hour": "08:00",
     "end_hour": "19:00",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "열린소아청소년과의원",
@@ -114,7 +114,7 @@
     "start_hour": "09:00",
     "end_hour": "18:00",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "강북삼성의원",
@@ -127,7 +127,7 @@
     "start_hour": "09:00",
     "end_hour": "18:00",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "우성연합의원",
@@ -140,7 +140,7 @@
     "start_hour": "08:00",
     "end_hour": "18:00",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "365봄이비인후과의원",
@@ -153,7 +153,7 @@
     "start_hour": "09:00",
     "end_hour": "19:30",
     "image": "",
-    "specialties": ""
+    "specialties": "내과"
   },
   {
     "name": "고운숨결내과의원",
@@ -166,7 +166,7 @@
     "start_hour": "08:00",
     "end_hour": "19:00",
     "image": "",
-    "specialties": ""
+    "specialties": ["내과", "이비인후과", "소아과"]
   },
   {
     "name": "안암위드치과의원",
@@ -179,7 +179,7 @@
     "start_hour": "09:30",
     "end_hour": "21:00",
     "image": "",
-    "specialties": ""
+    "specialties": ["치과", "이비인후과", "소아과"]
   },
   {
     "name": "에스제이여성의원",
@@ -192,7 +192,7 @@
     "start_hour": "09:00",
     "end_hour": "19:30",
     "image": "",
-    "specialties": ""
+    "specialties": ["산부인과", "비뇨의학과"]
   },
   {
     "name": "경희지안한의원",
