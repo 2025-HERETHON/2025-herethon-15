@@ -26,9 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const hosBtn = document.getElementById("hos-filter-btn");
   const topImage = document.getElementById("top-image");
+  const toggle = document.getElementById("toggle-btn");
 
   hosBtn?.addEventListener("click", () => {
-    hosBtn.classList.toggle("active");
+    const isActive = hosBtn.classList.toggle("active");
     topImage.classList.toggle("show");
+
+    if (isActive) {
+      toggle.src = "/static/images/white-toggle.svg";
+    } else {
+      toggle.src = "/static/images/black-toggle.svg";
+    }
   });
 });
