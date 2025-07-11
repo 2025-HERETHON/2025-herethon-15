@@ -16,56 +16,44 @@
         <img src="{% static 'accounts/images/logo.svg' %}" id="logo" />
       </div>
       <div class="Title">로그인</div>
-      <div class="LoginBox">
-        <div class="LoginTitle">이메일</div>
-        <input
-          id="emailInput"
-          type="text"
-          placeholder="이메일을 입력해 주세요"
-        />
-        <div id="emailError" class="Error-Message">
-          올바른 이메일 형식으로 작성해 주세요
+
+      <form method="POST" class="LoginForm">
+        {% csrf_token %}
+
+        <div class="LoginBox">
+          <div class="LoginTitle">이메일</div>
+          {{ form.username }} {% if form.username.errors %}
+          <div class="Error-Message">{{ form.username.errors.0 }}</div>
+          {% endif %}
         </div>
-      </div>
-      <div class="LoginBox">
-        <div class="LoginTitle">비밀번호</div>
-        <input
-          id="pwInput"
-          type="password"
-          placeholder="영문, 숫자, 특수문자 포함 5~20자를 입력해 주세요"
-        />
-        <img
-          src="{% static 'accounts/images/eye-off.svg' %}"
-          class="togglePw"
-          id="eyeOff"
-          alt="비밀번호 보기"
-        />
-        <img
-          src="{% static 'accounts/images/eye-on.svg' %}"
-          class="togglePw"
-          id="eyeOn"
-          alt="비밀번호 보기"
-        />
-        <div id="pwError" class="Error-Message">
-          비밀번호가 일치하지 않습니다
+
+        <div class="LoginBox">
+          <div class="LoginTitle">비밀번호</div>
+          {{ form.password }} {% if form.password.errors %}
+          <div class="Error-Message">{{ form.password.errors.0 }}</div>
+          {% endif %}
         </div>
-      </div>
-      <div class="SubText">
-        <div class="SubText1">
-          <input type="checkbox" id="check1" class="check-hidden" />
-          <label for="check1" class="check-label">자동로그인</label>
+
+        <div class="SubText">
+          <div class="SubText1">
+            <input type="checkbox" id="check1" class="check-hidden" />
+            <label for="check1" class="check-label">자동로그인</label>
+          </div>
+          <div class="SubText2">
+            아이디 찾기
+            <img
+              src="{% static 'accounts/images/subLoginLine.svg' %}"
+              id="subLoginLine"
+            />
+            비밀번호 찾기
+          </div>
         </div>
-        <div class="SubText2">
-          아이디 찾기
-          <img
-            src="{% static 'accounts/images/subLoginLine.svg' %}"
-            id="subLoginLine"
-          />
-          비밀번호 찾기
-        </div>
-      </div>
-      <div class="Btn1" id="btn1">로그인</div>
+
+        <button type="submit" class="Btn1">로그인</button>
+      </form>
+
       <div class="Btn2" id="btn2">회원가입</div>
+
       <div class="SnsLogin">
         <div class="SnsTitle">SNS 계정 로그인</div>
         <div class="SnsImage">
@@ -78,12 +66,11 @@
             class="snsImage"
           />
           <img
-            src=".{% static 'accounts/images/naver.svg' %}"
+            src="{% static 'accounts/images/naver.svg' %}"
             class="snsImage"
           />
         </div>
       </div>
     </div>
-    <script src="{% static 'accounts/js/login.js' %}"></script>
   </body>
 </html>

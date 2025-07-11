@@ -3,11 +3,11 @@ document.getElementById("menu").addEventListener("click", () => {
   location.href = "/accounts/menu/";
 });
 
-const emailInput = document.getElementById("emailInput");
+const emailInput = document.getElementById("id_username");
 const loginBtn = document.getElementById("btn1");
 const emailErrorMsg = document.getElementById("emailError");
 const pwErrorMsg = document.getElementById("pwError");
-const passwordInput = document.getElementById("pwInput");
+const passwordInput = document.getElementById("id_password");
 const eyeOff = document.getElementById("eyeOff");
 const eyeOn = document.getElementById("eyeOn");
 
