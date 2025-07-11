@@ -47,3 +47,5 @@ def hospital_info(request, hospital_id):
 
     return JsonResponse({"success": True, "hospital": data})
 
+def map_hos_view(request):
+    return render(request, 'hospital/map_hos.html')

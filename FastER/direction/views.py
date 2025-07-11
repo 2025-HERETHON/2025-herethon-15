@@ -3,10 +3,12 @@ import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from hospital.models import Hospital, Specialty, HospitalStatus
+from django.utils.timezone import now
 
 def hospitals_api(request):
     hospitals = Hospital.objects.all()
     hospitals_json = []
+
     for h in hospitals:
         try:
             status_data = {
@@ -26,7 +28,9 @@ def hospitals_api(request):
             'phone': h.phone,
             'is_emergency': h.is_emergency,
             'nightcare': h.nightcare,
-            'image': h.image.url if h.image else None,
+            'start_hour': h.start_hour.strftime("%H:%M") if h.start_hour else None,
+            'end_hour': h.end_hour.strftime("%H:%M") if h.end_hour else None,
+            'image': h.image.url if h.image else "",
             'specialties': [s.name for s in h.specialties.all()],
             'status': status_data
         })

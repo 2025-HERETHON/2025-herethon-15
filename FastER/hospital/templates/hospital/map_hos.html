@@ -152,6 +152,7 @@
         </button>
         <button id="ing-btn" data-order="3" class="filter-btn">진료중</button>
         <button id="emr-btn" data-order="3" class="filter-btn">응급실</button>
+        <button data-order="3" class="filter-btn">소화기 내과</button>
         <!-- 필요한 만큼 계속 추가 가능 -->
       </section>
       <!-- 병원 정보 영역-->
@@ -191,7 +192,7 @@
                   서울 성북구 고려대로 73
                 </p>
               </div>
-              <img />
+              <img id="hsp-img" src="/media/hospital_images/고려대병원.jpeg" />
             </div>
 
             <div class="hsp-info-call">
@@ -203,16 +204,18 @@
           <div>
             <div class="info-summary">
               <div class="info-item">
-                <p class="info-label">대기 현황</p>
-                <p id="info-value-wait" class="info-value wait"></p>
+                <p class="info-label">실시간 병상정보</p>
+                <p id="info-value-wait" class="info-value wait">
+                  5병상<strong id="wait-num">여유</strong>
+                </p>
               </div>
               <div class="info-item">
                 <p class="info-label">교통 혼잡도</p>
-                <p id="info-value traffic" class="info-value traffic">보통</p>
+                <p id="info-value traffic" class="info-value traffic">복잡</p>
               </div>
               <div class="info-item">
                 <p class="info-label">운영시간</p>
-                <p class="info-value time">8:30~17:30</p>
+                <p id="info-value-time" class="info-value time">8:30~17:30</p>
               </div>
             </div>
           </div>
