@@ -2,7 +2,7 @@ import { getDistance } from "./utils.js";
 
 let lastCenter = null;
 const MIN_DISTANCE_KM = 0.3;
-const MAX_RANGE = 5;
+const MAX_RANGE = 3;
 
 const yOffsetTable = {
   1: 0.0002,

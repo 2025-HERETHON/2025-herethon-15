@@ -2,6 +2,11 @@ body {
   margin: 0px;
 }
 
+#menu {
+  cursor: pointer;
+  margin-top: 8px;
+}
+
 .Container {
   position: relative;
   margin: 0 auto;
@@ -29,7 +34,7 @@ body {
 
   #logo {
     width: 78.068px;
-    height: 15.098px;
+    height: 28px;
     flex-shrink: 0;
   }
 }
@@ -37,7 +42,7 @@ body {
 /* 필터 버튼 가로 스크롤 컨테이너 */
 .filter-container {
   position: absolute;
-  top: 45px; /* search-bar 아래에 적절히 조절 */
+  top: 50px; /* search-bar 아래에 적절히 조절 */
   left: calc(50% - 185px);
   right: 0;
   padding: 3px 14px;
@@ -107,7 +112,7 @@ body {
   text-align: center;
   position: relative;
   margin-left: 18px;
-  margin-top: 69px;
+  margin-top: 76px;
 
   /* pre_m_20 */
   font-family: Pretendard;
@@ -176,6 +181,8 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    margin-top: 4px;
   }
 
   #optionInput::placeholder {
