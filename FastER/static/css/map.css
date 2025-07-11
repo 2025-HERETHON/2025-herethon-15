@@ -28,10 +28,9 @@ body {
 }
 
 .logo {
-  margin-top: 18px;
+  margin-top: 13px;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-left: 270px;
   z-index: 3;
 }
 
