@@ -262,13 +262,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  top: 4px;
+  cursor: pointer;
 
   /* pre_m_14 */
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 39px;
 }

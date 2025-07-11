@@ -230,6 +230,7 @@ body {
   margin-bottom: 9.83px;
   margin-top: 18px;
   cursor: pointer;
+  border: 1px solid var(--main, #ff7200);
 
   /* pre_m_14 */
   font-family: Pretendard;
