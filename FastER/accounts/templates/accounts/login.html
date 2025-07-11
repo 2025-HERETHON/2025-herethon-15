@@ -15,7 +15,9 @@
         </a>
       </div>
       <div class="Logo">
-        <img src="{% static 'images/logo.svg' %}" id="logo" />
+        <a href="{% url 'accounts:home' %}">
+          <img src="{% static 'images/logo.svg' %}" id="logo"
+        /></a>
       </div>
       <div class="Title">로그인</div>
 
@@ -35,13 +37,13 @@
           <div class="LoginTitle">비밀번호</div>
           {{ form.password }} {% if form.password.errors %}
           <img
-            src="../images/eye-off.svg"
+            src="{% static 'images/eye-off.svg' %}"
             class="togglePw"
             id="eyeOff"
             alt="비밀번호 보기"
           />
           <img
-            src="../images/eye-on.svg"
+            src="{% static 'images/eye-on.svg' %}"
             class="togglePw"
             id="eyeOn"
             alt="비밀번호 보기"
