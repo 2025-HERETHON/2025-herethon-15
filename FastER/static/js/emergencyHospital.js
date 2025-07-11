@@ -13,7 +13,7 @@ const yOffsetTable = {
   6: 0.007,
   7: 0.015,
   8: 0.03,
-  9: 0.007,
+  9: 0.04,
   10: 0.009,
 };
 
@@ -161,7 +161,6 @@ function fetchAndRenderHospitals(
 
         kakao.maps.event.addListener(marker, "click", () => {
           const zoomLevel = mapManager.map.getLevel();
-          console.log(zoomLevel);
           const offsetY = yOffsetTable[zoomLevel] || -0.002;
           const offsetPos = new kakao.maps.LatLng(
             position.getLat() - offsetY,
