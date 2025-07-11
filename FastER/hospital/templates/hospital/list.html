@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/list.css' %}" />
+    <title>FastER</title>
+  </head>
+  <body>
+    <div class="Container">
+      <div class="Menu">
+        <a href="{% url 'accounts:menu' %}"
+          ><img src="{% static 'images/menu.svg' %}" id="menu"
+        /></a>
+      </div>
+      <div class="Logo">
+        <a href="{% url 'accounts:home'%}">
+          <img src="{% static 'images/logo.svg' %}" id="logo"
+        /></a>
+      </div>
+      <!-- 필터 버튼 영역 -->
+      <section id="category" class="filter-container">
+        <button id="CS2" data-order="1" class="filter-btn-1">
+          최근 방문한 병원
+        </button>
+        <button id="HP8" data-order="2" class="filter-btn">
+          자주 방문한 병원
+        </button>
+        <button id="PM9" data-order="3" class="filter-btn">
+          즐겨찾기한 병원
+        </button>
+      </section>
+      <div class="TitleBox">
+        <div class="Title">최근 방문한 병원</div>
+        <div class="Title-1">자주 방문한 병원</div>
+        <div class="Title-2">즐겨찾기한 병원</div>
+        <div class="Dropdown1">
+          <div class="OptionList">
+            <input
+              id="optionInput"
+              type="text"
+              placeholder="거리 순"
+              readonly
+            />
+            <img src="{% static 'images/toggleDown.svg' %}" id="toggleDown" />
+          </div>
+          <div class="OptionBox" id="optionBox">
+            <div class="Option">거리 순</div>
+            <div class="ToggleLine"></div>
+            <div class="Option">소요시간 순</div>
+            <div class="ToggleLine"></div>
+            <div class="Option">대기시간 순</div>
+          </div>
+        </div>
+      </div>
+      <div class="HospitalBox1">
+        <div class="HospitalTitle">
+          고려대학교 안암병원권역응<br />급의료센터
+        </div>
+        <img
+          src="{% static 'images/고려대응급실.jpeg' %}"
+          class="hospitalImage"
+        />
+        <div class="HospitalAddress">서울 성북구 고려대로 73 (안암동)</div>
+        <div class="type">
+          <div class="Option-dept">응급실</div>
+        </div>
+        <div class="CallBox">
+          <div class="Num">02-920-5374</div>
+          <div class="Calling">전화걸기</div>
+        </div>
+        <div class="LongLine"></div>
+        <div class="InfoBox">
+          <div class="Info">
+            <div class="SubTitle">실시간 병상정보</div>
+            <div class="SubText">5병상</div>
+          </div>
+          <div class="VerLine"></div>
+          <div class="Info">
+            <div class="SubTitle">혼잡도</div>
+            <div class="SubText">보통</div>
+          </div>
+          <div class="VerLine"></div>
+          <div class="Info">
+            <div class="SubTitle">운영시간</div>
+            <div class="SubText">24시간</div>
+          </div>
+        </div>
+        <div class="BtnBox">
+          <div class="SearchBtn">길찾기</div>
+          <img src="{% static 'images/infoBtn.svg' %}" id="infoBtn" />
+          <img src="{% static 'images/bookmark-after.svg' %}" id="bookmark" />
+        </div>
+      </div>
+      <div class="HospitalBox2">
+        <div class="HospitalTitle" id="HospitalTitle-1">
+          고려대학교 안암병원
+        </div>
+        <img
+          src="{% static 'images/고려대병원.jpeg' %}"
+          class="hospitalImage"
+        />
+        <div class="HospitalAddress">서울 성북구 고려대로 73 (안암동)</div>
+        <div class="type">
+          <div class="Option-dept-1">소화기 내과</div>
+          <img
+            src="{% static 'images/toggleDown-dept.svg' %}"
+            id="toggleDown-dept"
+          />
+        </div>
+        <div class="CallBox" id="callBox-1">
+          <div class="Num">1577-0083</div>
+          <div class="Calling">전화걸기</div>
+        </div>
+        <div class="LongLine"></div>
+        <div class="InfoBox">
+          <div class="Info">
+            <div class="SubTitle">대기 현황</div>
+            <div class="SubText-1">대기</div>
+            <div class="SubText" id="space">2명</div>
+          </div>
+          <div class="VerLine"></div>
+          <div class="Info">
+            <div class="SubTitle">혼잡도</div>
+            <div class="SubText">보통</div>
+          </div>
+          <div class="VerLine"></div>
+          <div class="Info">
+            <div class="SubTitle">운영시간</div>
+            <div class="SubText" id="SubText-2">8:30~17:30</div>
+          </div>
+        </div>
+        <div class="BtnBox">
+          <div class="SearchBtn">길찾기</div>
+          <img src="{% static 'images/infoBtn.svg' %}" id="infoBtn" />
+          <img src="{% static 'images/bookmark-before.svg' %}" id="bookmark" />
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/list.js' %}"></script>
+  </body>
+</html>

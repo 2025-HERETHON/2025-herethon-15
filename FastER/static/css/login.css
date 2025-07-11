@@ -1,0 +1,328 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.Container {
+  position: relative;
+  margin: 0 auto;
+  width: 375px;
+  height: 700px;
+  background: var(--Background, #f4f4f4);
+  display: flex;
+  flex-direction: column;
+}
+
+.Menu {
+  width: 18px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-left: 19.53px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.Logo {
+  position: absolute;
+  display: flex;
+  margin-left: 148.96px;
+  margin-top: 12px;
+
+  #logo {
+    width: 78.068px;
+    height: 15.098px;
+    flex-shrink: 0;
+  }
+}
+
+.Title {
+  color: var(--main, #ff7200);
+  margin: 0 auto;
+  margin-top: 53.7px;
+
+  /* pre_b_24 */
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.LoginBox {
+  position: relative;
+  margin-left: 18px;
+  margin-right: 20px;
+
+  #id_username {
+    width: 317px;
+    height: 37px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 0.9px solid var(--gray_01, #d5d5d5);
+    background: none;
+    padding-left: 17px;
+    outline: none;
+
+    /* pre_r_14 */
+    color: var(--gray_02, #8c8c8c);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  #id_username::placeholder {
+    color: var(--gray_01, #d5d5d5);
+
+    /* pre_r_14 */
+    font-family: Pretendard;
+    font-size: 13.3px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  #id_username:focus {
+    border: 0.5px solid var(--main, #ff7200);
+  }
+
+  #id_password {
+    width: 317px;
+    height: 37px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 0.9px solid var(--gray_01, #d5d5d5);
+    background: none;
+    padding-left: 17px;
+    outline: none;
+
+    /* pre_r_14 */
+    color: var(--gray_02, #8c8c8c);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  #id_password::placeholder {
+    color: var(--gray_01, #d5d5d5);
+
+    /* pre_r_14 */
+    font-family: Pretendard;
+    font-size: 13.3px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  #id_password:focus {
+    border: 0.5px solid var(--main, #ff7200);
+  }
+}
+
+#id_username.input-error {
+  border: 1px solid var(--error, #ff6d6d) !important;
+}
+
+#id_password.input-error {
+  border: 1px solid var(--error, #ff6d6d) !important;
+}
+
+.LoginTitle {
+  color: var(--gray_02, #8c8c8c);
+  margin-bottom: 4.7px;
+  margin-top: 3px;
+
+  /* pre_r_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.SubText {
+  display: flex;
+  position: inherit;
+  color: var(--gray_02, #8c8c8c);
+  margin: 0 auto;
+  gap: 149px;
+  margin-bottom: 7px;
+  margin-top: 6px;
+
+  /* pre_r_10 */
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.SubText1 {
+  margin-left: 21px;
+  display: flex;
+
+  #check1 {
+    margin-right: 40px;
+  }
+}
+
+/* 체크박스 숨김 */
+.check-hidden {
+  display: none;
+}
+
+/* 체크박스 스타일을 커스텀하는 라벨 */
+.check-label {
+  position: relative;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+/* 체크박스 사각형 표시 */
+.check-label::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 0;
+  top: 0px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  border: 0.5px solid #d5d5d5;
+}
+
+/* 체크됐을 때 체크표시 추가 */
+.check-hidden:checked + .check-label::after {
+  content: "✔";
+  position: absolute;
+  display: flex;
+  left: 1px;
+  top: -6px;
+  font-size: 18px;
+  color: #ff7200;
+}
+
+.SubText2 {
+  display: flex;
+
+  #subLoginLine {
+    margin-left: 7px;
+    margin-right: 7px;
+    top: 15px;
+  }
+}
+
+.Btn1 {
+  margin: 0 auto;
+  width: 335px;
+  height: 39.104px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--main, #ff7200);
+  color: var(--white, #fff);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 9.83px;
+  margin-top: 18px;
+  cursor: pointer;
+  border: 1px solid var(--main, #ff7200);
+
+  /* pre_m_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.Btn2 {
+  margin: 0 auto;
+  width: 335px;
+  height: 39.104px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid var(--main, #ff7200);
+  color: var(--main, #ff7200);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  cursor: pointer;
+
+  /* pre_m_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.SnsTitle {
+  color: var(--black, #000);
+  text-align: center;
+  margin-bottom: 12px;
+
+  /* pre_m_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.SnsImage {
+  gap: 15px;
+  display: flex;
+}
+
+.snsImage {
+  width: 45.762px;
+  height: 45.762px;
+  flex-shrink: 0;
+}
+
+.SnsLogin {
+  margin: 0 auto;
+}
+
+.Error-Message {
+  color: #ff6d6d;
+  visibility: hidden;
+
+  /* pre_r_10 */
+  font-family: Pretendard;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* 에러 발생 시 보이게 */
+.Error-Message.visible {
+  visibility: visible;
+}
+
+.togglePw {
+  cursor: pointer;
+  display: none;
+}
+
+#eyeOff {
+  position: absolute;
+  flex-shrink: 0;
+  right: 10px;
+  top: 39px;
+}
+
+#eyeOn {
+  position: absolute;
+  flex-shrink: 0;
+  right: 10px;
+  top: 41.1px;
+}

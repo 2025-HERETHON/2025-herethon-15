@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>지도 서비스</title>
+    <link rel="stylesheet" href="{% static 'css/map.css' %}" />
+  </head>
+  <body>
+    <main class="map-container">
+      <header>
+        <a href="{% url 'accounts:menu'%}"
+          ><svg
+            class="menu"
+            id="menu"
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="15"
+            viewBox="0 0 21 15"
+            fill="none"
+          >
+            <path
+              d="M1.31641 7.10254H19.3164"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M1.31641 1.10254H19.3164"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M1.31641 13.1025H19.3164"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+        <a href="{% url 'accounts:home'%}">
+          <svg
+            class="logo"
+            id="logo"
+            xmlns="http://www.w3.org/2000/svg"
+            width="82"
+            height="24"
+            viewBox="0 0 82 24"
+            fill="none"
+          >
+            <rect
+              x="0.359375"
+              y="0.919434"
+              width="81.14"
+              height="22.2832"
+              rx="2.70442"
+              fill="#FF7200"
+            />
+            <path
+              d="M17.1621 5.42871L16.7344 7.78906H11.4531L10.916 10.9297H16.168L15.7402 13.29H10.5117L9.64746 18.3457H6.63281L8.84277 5.42871H17.1621Z"
+              fill="white"
+            />
+            <path
+              d="M51.6523 5.42871L51.2236 7.78906H45.9629L45.4639 10.707H49.917L49.5371 13.0674H45.0596L44.5605 15.9854H49.9189L49.4902 18.3457H41.1426L43.3525 5.42871H51.6523Z"
+              fill="white"
+            />
+            <path
+              d="M71.7637 10.3633H75.2295L74.3633 13.8594H71.1035L70.4834 17.1416H66.7676L67.3877 13.8594H63.9238L64.7891 10.3633H68.0479L68.667 7.08203H72.3828L71.7637 10.3633Z"
+              fill="white"
+            />
+            <path
+              d="M16.8777 11.6565C17.8448 7.84602 22.4219 7.97633 24.0457 9.02176C25.4832 9.94737 25.1745 11.4305 25.0837 12.2298L24.0457 18.3518H21.6082L21.7742 17.2981C18.7059 19.8031 16.0373 18.3532 15.7517 17.0081C14.8493 12.7553 20.892 12.2539 21.8445 12.3548C22.6058 12.4352 22.6417 11.8645 22.6257 11.6565C22.5996 11.3166 22.2675 10.6235 21.1472 10.5696C20.0266 10.5158 19.604 11.2718 19.533 11.6565H16.8777ZM22.1365 13.9495C21.3622 14.0133 19.8146 14.0938 18.8875 14.8479C18.1046 15.4847 18.1558 16.9584 20.0105 16.4827C21.3913 16.1285 22.0725 14.8131 22.1365 13.9495Z"
+              fill="white"
+            />
+            <path
+              d="M34.5695 11.5459H32.0908C31.6627 10.3396 30.6881 10.2795 29.6594 10.5367C28.6306 10.7939 28.5076 12.5006 31.0499 12.6448C34.0427 12.8145 34.1696 14.6277 34.0789 15.3076C34.0237 15.7217 33.3882 18.829 29.0978 18.6887C25.6655 18.5765 25.209 16.4787 25.4234 15.4889H27.9486C28.4513 17.4763 31.7201 16.8778 31.2912 15.4889C30.9518 14.3897 30.1471 14.6938 28.2315 14.3897C26.6828 14.1438 25.7085 12.0586 26.9354 10.2248C28.2887 8.20228 30.5939 8.167 32.5723 8.6669C34.6801 9.19951 34.5227 10.7314 34.5695 11.5459Z"
+              fill="white"
+            />
+            <path
+              d="M39.6973 8.56982H41.5908L41.2764 10.9302H39.2705L38.3418 16.0562L38.3252 16.0552V16.0571C38.1907 16.8 39.768 16.3799 40.1445 16.355L39.8359 18.3286C39.5267 18.4872 38.5354 18.7098 37.2021 18.4741C35.6679 18.2027 35.633 16.7192 35.7744 15.9907C35.7763 15.99 35.7784 15.9885 35.7803 15.9878L36.5811 10.9302H35.25L35.5654 8.56982H36.9541L37.3018 6.37256H40.0957L39.6973 8.56982Z"
+              fill="white"
+            />
+            <path
+              d="M58.6807 5.4292C60.9426 5.42959 62.7764 7.26384 62.7764 9.52588C62.7761 11.6449 61.1666 13.3871 59.1035 13.5991L60.8936 18.3462H57.8789L56.0977 13.6216H54.459L53.6514 18.3462H50.6367L52.8457 5.43018L52.9814 5.4292H58.6807ZM54.876 10.9282H58.1533C58.9488 10.928 59.5936 10.2823 59.5938 9.48682C59.5936 8.69129 58.9488 8.0466 58.1533 8.04639H55.3838L54.876 10.9282Z"
+              fill="white"
+            />
+          </svg>
+        </a>
+      </header>
+      <!-- 검색 입력창 -->
+      <section>
+        <div class="map-overlay">
+          <input
+            id="keyword"
+            type="text"
+            placeholder="병원 이름, 주소, 진료과 검색"
+            class="search-input"
+          />
+          <svg
+            class="voice"
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="22"
+            viewBox="0 0 17 22"
+            fill="none"
+          >
+            <path
+              d="M11.8578 4.7873C11.8578 2.98418 10.3961 1.52246 8.59297 1.52246C6.78985 1.52246 5.32812 2.98418 5.32812 4.7873V10.8506C5.32812 12.6537 6.78985 14.1154 8.59297 14.1154C10.3961 14.1154 11.8578 12.6537 11.8578 10.8506V4.7873Z"
+              stroke="#8C8C8C"
+              stroke-width="1.86562"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M1.5957 10.3848C1.5957 14.2485 4.72809 17.3809 8.5918 17.3809M8.5918 17.3809C12.4555 17.3809 15.5879 14.2485 15.5879 10.3848M8.5918 17.3809V20.1793"
+              stroke="#8C8C8C"
+              stroke-width="1.86562"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <ul id="placesList" class="places-list"></ul>
+      </section>
+      <!-- 필터 버튼 영역 -->
+      <section id="category" class="filter-container">
+        <button id="emr-btn" data-order="3" class="filter-btn active">
+          응급실
+        </button>
+        <!-- 필요한 만큼 계속 추가 가능 -->
+      </section>
+      <!-- 병원 정보 영역-->
+      <section id="info-container" class="info-container">
+        <button class="info-btn"></button>
+        <div class="hsp-container">
+          <div class="hsp-info">
+            <div class="hsp-info-text">
+              <div class="hsp-text">
+                <div class="hsp-text-btn-box">
+                  <h1 id="hsp-title" class="hsp-title">고려대학교 안암병원</h1>
+                  <button class="type-btn2">응급실</button>
+                  <div class="drop-down-box">
+                    <div class="drop-down">내과</div>
+                    <div class="drop-down">가정의학과</div>
+                    <div class="drop-down">응급의학과</div>
+                  </div>
+                </div>
+                <p id="hsp-location" class="hsp-location">
+                  서울 성북구 고려대로 73
+                </p>
+              </div>
+              <img
+                id="hsp-img"
+                src="/media/hospital_images/고려대응급실.jpeg"
+              />
+            </div>
+
+            <div class="hsp-info-call">
+              <h1 id="call-num" class="call-num">1577-0083</h1>
+              <button class="call-btn">전화걸기</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="info-summary">
+              <div class="info-item">
+                <p class="info-label">실시간 병상정보</p>
+                <p id="info-value-wait" class="info-value wait">
+                  5병상<strong id="wait-num">여유</strong>
+                </p>
+              </div>
+              <div class="info-item">
+                <p class="info-label">교통 혼잡도</p>
+                <p id="info-value traffic" class="info-value traffic">보통</p>
+              </div>
+              <div class="info-item">
+                <p class="info-label">운영시간</p>
+                <p id="info-value-time" class="info-value time">24시</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="load-info">
+            <button class="load-btn" data-lat="" data-lng="" data-title="">
+              길찾기
+            </button>
+            <div class="load-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="23"
+                height="23"
+                viewBox="0 0 23 23"
+                fill="none"
+              >
+                <path
+                  d="M11.6465 21.3047C17.1693 21.3047 21.6465 16.8275 21.6465 11.3047C21.6465 5.78184 17.1693 1.30469 11.6465 1.30469C6.12364 1.30469 1.64648 5.78184 1.64648 11.3047C1.64648 16.8275 6.12364 21.3047 11.6465 21.3047Z"
+                  stroke="#D5D5D5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M11.6465 7.30469V11.3047"
+                  stroke="#D5D5D5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M11.6465 15.3047H11.6565"
+                  stroke="#D5D5D5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                id="star-btn"
+                class="star-btn"
+                xmlns="http://www.w3.org/2000/svg"
+                width="23"
+                height="22"
+                viewBox="0 0 23 22"
+                fill="none"
+              >
+                <path
+                  d="M11.334 1.79492L14.424 8.05492L21.334 9.06492L16.334 13.9349L17.514 20.8149L11.334 17.5649L5.15398 20.8149L6.33398 13.9349L1.33398 9.06492L8.24398 8.05492L11.334 1.79492Z"
+                  stroke="#D5D5D5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 지도 표시 영역 -->
+      <section id="map" class="map"></section>
+    </main>
+
+    <!-- 카카오 지도 SDK -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6da30244de7da15dcbc0f412b90d075&libraries=services,geometry"
+    ></script>
+
+    <!-- JS 코드 분리 -->
+    <script src="{% static 'js/dropDown.js' %}"></script>
+    <script type="module" src="{% static 'js/keywordSearch.js' %}"></script>
+    <script src="{% static 'js/locationLoad.js' %}"></script>
+    <script type="module" src="{% static 'js/filterSearch.js' %}"></script>
+  </body>
+</html>

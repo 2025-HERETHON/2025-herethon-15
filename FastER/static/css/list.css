@@ -1,0 +1,537 @@
+body {
+  margin: 0px;
+}
+
+#menu {
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.Container {
+  position: relative;
+  margin: 0 auto;
+  width: 375px;
+  height: 700px;
+  background: var(--Background, #f4f4f4);
+  display: flex;
+  flex-direction: column;
+}
+
+.Menu {
+  width: 18px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-left: 19.53px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.Logo {
+  position: absolute;
+  display: flex;
+  margin-left: 148.96px;
+  margin-top: 12px;
+
+  #logo {
+    width: 78.068px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+}
+
+/* 필터 버튼 가로 스크롤 컨테이너 */
+.filter-container {
+  position: absolute;
+  top: 50px; /* search-bar 아래에 적절히 조절 */
+  left: calc(50% - 185px);
+  right: 0;
+  padding: 3px 14px;
+  display: flex;
+  overflow-x: auto;
+  gap: 5px;
+  z-index: 2;
+}
+
+/* 스크롤바 숨기기 (선택사항) */
+.filter-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* 개별 필터 버튼 */
+.filter-btn {
+  flex: 0 0 auto; /* 줄 바꿈 방지 */
+  position: relative;
+  padding: 4.5px 10px;
+  font-size: 13.5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.filter-btn-1 {
+  background-color: #ff6b00;
+  color: #fff;
+  border: none;
+  flex: 0 0 auto; /* 줄 바꿈 방지 */
+  padding: 4.5px 10px;
+  font-size: 13.5px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.filter-btn.active {
+  background-color: #ff6b00;
+  color: #fff;
+  border: none;
+}
+
+.filter-btn-1.active1 {
+  background-color: #f8f8f8;
+  color: #333;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 5px;
+}
+
+.TitleBox {
+  display: flex;
+}
+
+.Title {
+  color: var(--main, #ff7200);
+  text-align: center;
+  position: relative;
+  margin-left: 18px;
+  margin-top: 76px;
+
+  /* pre_m_20 */
+  font-family: Pretendard;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.Title-1 {
+  display: none;
+  color: var(--main, #ff7200);
+  text-align: center;
+  position: relative;
+  margin-left: 18px;
+  margin-top: 76px;
+
+  /* pre_m_20 */
+  font-family: Pretendard;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.Title-2 {
+  display: none;
+  color: var(--main, #ff7200);
+  text-align: center;
+  position: relative;
+  margin-left: 18px;
+  margin-top: 76px;
+
+  /* pre_m_20 */
+  font-family: Pretendard;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.Dropdown1 {
+  position: absolute;
+  margin-top: 73px;
+  right: 10px;
+}
+
+.OptionList {
+  display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  #optionInput {
+    display: flex;
+    width: 60px;
+    padding: 3.5px 6px;
+    align-items: center;
+    gap: 12px;
+    border-radius: 5.5px;
+    border: 1px solid var(--gray_01, #d5d5d5);
+    background: var(--white, #fff);
+    color: var(--gray_02, #8c8c8c);
+
+    /* pre_r_10 */
+    font-family: Pretendard;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    margin-top: 4px;
+  }
+
+  #optionInput::placeholder {
+    color: var(--gray_02, #8c8c8c);
+
+    /* pre_r_10 */
+    font-family: Pretendard;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  #optionInput:focus {
+    outline: none;
+  }
+
+  #toggleDown {
+    position: relative;
+    right: 18px;
+  }
+}
+
+.OptionBox {
+  display: none;
+  margin-top: 3px;
+  padding-top: 4.3px;
+  width: 64.5px;
+  height: 63.042px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 0.5px solid var(--gray_01, #d5d5d5);
+  background: #fff;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.OptionBox.visible {
+  position: absolute;
+  left: 1px;
+  top: 27px;
+  padding-top: 4.3px;
+  width: 70px;
+  height: 63.042px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 0.5px solid var(--gray_01, #d5d5d5);
+  background: #fff;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+  display: block;
+  z-index: 3;
+}
+
+.Option {
+  color: var(--gray_02, #8c8c8c);
+  text-align: center;
+  cursor: pointer;
+
+  /* pre_r_10 */
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.ToggleLine {
+  margin: 0 auto;
+  width: 57.241px;
+  height: 0.5px;
+  flex-shrink: 0;
+  background-color: var(--gray_01, #d5d5d5);
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border: none;
+}
+
+.HospitalBox1 {
+  position: relative;
+  margin: 0 auto;
+  width: 310px;
+  height: 212px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: var(--white, #fff);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+  margin-top: 7px;
+  padding: 23.06px 14.9px;
+}
+
+.HospitalBox2 {
+  position: relative;
+  margin: 0 auto;
+  width: 310px;
+  height: 212px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: var(--white, #fff);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+  margin-top: 7px;
+  padding: 23.06px 14.9px;
+}
+
+.HospitalTitle {
+  color: var(--black, #000);
+  position: relative;
+
+  /* pre_m_18 */
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.HospitalAddress {
+  color: var(--gray_02, #8c8c8c);
+  position: relative;
+  margin-top: 2px;
+
+  /* pre_r_10 */
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.Option-dept {
+  color: var(--serve_01, #ff9901);
+  position: absolute;
+  right: 95px;
+  top: 30px;
+
+  /* pre_r_10 */
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.hospitalImage {
+  position: absolute;
+  right: 17px;
+  top: 20px;
+  width: 60.431px;
+  height: 60.431px;
+  flex-shrink: 0;
+  border-radius: 8.688px;
+  background: url(<path-to-image>) lightgray -15.108px 0px / 150% 100% no-repeat;
+}
+
+.CallBox {
+  display: flex;
+  gap: 11px;
+  margin-top: 10px;
+}
+
+.Num {
+  color: var(--black, #000);
+  text-align: center;
+
+  /* pre_r_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.Calling {
+  color: var(--main, #ff7200);
+  text-align: center;
+
+  /* pre_r_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+.LongLine {
+  width: 305.189px;
+  height: 0.8px;
+  flex-shrink: 0;
+  background-color: var(--gray_01, #d5d5d5);
+  margin-top: 13px;
+  margin-bottom: 10px;
+}
+
+.InfoBox {
+  display: flex;
+}
+
+.Info {
+  margin: 0 auto;
+}
+
+.SubTitle {
+  color: var(--gray_02, #8c8c8c);
+
+  /* pre_r_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.VerLine {
+  width: 40.054px;
+  height: 0.8px;
+  transform: rotate(-90deg);
+  flex-shrink: 0;
+  background-color: var(--gray_01, #d5d5d5);
+  position: relative;
+  top: 26px;
+}
+
+.SubText {
+  color: var(--main, #ff7200);
+  text-align: center;
+  margin-top: 4px;
+
+  /* pre_b_18 */
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.BtnBox {
+  display: flex;
+
+  #infoBtn {
+    flex-shrink: 0;
+    position: relative;
+    top: 9px;
+    margin-left: 12px;
+  }
+
+  #bookmark {
+    flex-shrink: 0;
+    position: relative;
+    top: 9px;
+    margin-left: 10px;
+  }
+}
+
+.SearchBtn {
+  width: 237px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--main, #ff7200);
+  color: var(--white, #fff);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 16px;
+
+  /* pre_m_14 */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#HospitalTitle-1 {
+  position: relative;
+  margin-top: 15px;
+}
+
+.Option-dept-1 {
+  color: var(--serve_01, #ff9901);
+  position: absolute;
+  right: 121px;
+  bottom: 198px;
+
+  /* pre_r_10 */
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#hospitalImage-1 {
+  position: absolute;
+  right: 33px;
+  bottom: 257px;
+  width: 60.431px;
+  height: 60.431px;
+  flex-shrink: 0;
+}
+
+.SubText-1 {
+  color: var(--main, #ff7200);
+  text-align: center;
+  position: absolute;
+  margin-top: 16px;
+  margin-left: 3px;
+
+  /* pre_r_10 */
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#space {
+  position: relative;
+  left: 13px;
+}
+
+#SubText-2 {
+  font-size: 14px;
+  position: relative;
+  right: 9px;
+  top: 5px;
+}
+
+#callBox-1 {
+  margin-top: 17.3px;
+}
+
+.Type {
+  display: flex;
+}
+
+#toggleDown-dept {
+  position: absolute;
+  right: 108px;
+  bottom: 201px;
+}
