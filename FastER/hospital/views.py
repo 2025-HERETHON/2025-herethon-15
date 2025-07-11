@@ -49,3 +49,6 @@ def hospital_info(request, hospital_id):
 
 def map_hos_view(request):
     return render(request, 'hospital/map_hos.html')
+
+def hos_list_view(request):
+    return render(request, 'hospital/list.html')

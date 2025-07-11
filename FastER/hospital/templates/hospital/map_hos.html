@@ -5,30 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>지도 서비스</title>
-    <link rel="stylesheet" href="{% static 'direction/css/map.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/map.css' %}" />
   </head>
   <body>
-    <!--<script
-      id="hospital-data"
-      type="application/json"
-      data-json="{{ hospitals_json }}"
-    ></script>
-
-    <script>
-      let hospitalData = [];
-
-      try {
-        const raw = document.getElementById("hospital-data").dataset.json;
-        if (raw && raw.trim()) {
-          hospitalData = JSON.parse(raw);
-          console.log("✅ 병원 데이터 파싱 성공", hospitalData);
-        } else {
-          console.warn("⚠ 병원 데이터 비어 있음");
-        }
-      } catch (e) {
-        console.error("❌ 병원 데이터 JSON 파싱 실패:", e);
-      }
-    </script>-->
     <script>
       //메뉴 페이지 이동
       document.getElementById("menu").addEventListener("click", () => {
@@ -158,6 +137,7 @@
         <button id="ing-btn" data-order="3" class="filter-btn">진료중</button>
         <button id="emr-btn" data-order="3" class="filter-btn">응급실</button>
         <button data-order="3" class="filter-btn">소화기 내과</button>
+        <button data-order="3" class="filter-btn">내과 의원</button>
         <!-- 필요한 만큼 계속 추가 가능 -->
       </section>
       <!-- 병원 정보 영역-->
@@ -291,15 +271,9 @@
     ></script>
 
     <!-- JS 코드 분리 -->
-    <script src="{% static 'direction/js/dropDown.js' %}"></script>
-    <script
-      type="module"
-      src="{% static 'direction/js/keywordSearch.js' %}"
-    ></script>
-    <script src="{% static 'direction/js/locationLoad.js' %}"></script>
-    <script
-      type="module"
-      src="{% static 'direction/js/filterSearch.js' %}"
-    ></script>
+    <script src="{% static 'js/dropDown.js' %}"></script>
+    <script type="module" src="{% static 'js/keywordSearch.js' %}"></script>
+    <script src="{% static 'js/locationLoad.js' %}"></script>
+    <script type="module" src="{% static 'js/filterSearch.js' %}"></script>
   </body>
 </html>

@@ -13,4 +13,5 @@ urlpatterns = [
 
     
     path('', views.map_hos_view, name='hospital'),
+    path("list/", views.hos_list_view, name="hos_list_view"),
 ]

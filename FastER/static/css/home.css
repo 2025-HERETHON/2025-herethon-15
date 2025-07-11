@@ -1,7 +1,6 @@
-body{
+body {
   margin: 0px;
 }
-
 
 .Container {
   position: relative;
@@ -63,11 +62,11 @@ main {
 }
 
 .Btn1 a {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .Btn2 a {
-  color:#ff7200
+  color: #ff7200;
 }
 
 .Btn1 {
@@ -157,4 +156,5 @@ main {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
