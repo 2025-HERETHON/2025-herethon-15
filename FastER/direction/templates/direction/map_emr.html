@@ -34,6 +34,11 @@
       document.getElementById("menu").addEventListener("click", () => {
         location.href = "/accounts/menu/";
       });
+
+      //홈 이동
+      document.getElementById("logo").addEventListener("click", () => {
+        location.href = "/accounts/home/";
+      });
     </script>
 
     <main class="map-container">
@@ -71,6 +76,7 @@
         </svg>
         <svg
           class="logo"
+          id="logo"
           xmlns="http://www.w3.org/2000/svg"
           width="79"
           height="16"

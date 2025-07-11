@@ -3,6 +3,11 @@ document.getElementById("menu").addEventListener("click", () => {
   location.href = "/accounts/menu/";
 });
 
+//홈 이동
+document.getElementById("logo").addEventListener("click", () => {
+  location.href = "/accounts/home/";
+});
+
 const emailInput = document.getElementById("id_username");
 const loginBtn = document.getElementById("btn1");
 const emailErrorMsg = document.getElementById("emailError");
