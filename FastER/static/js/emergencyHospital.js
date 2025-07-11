@@ -72,11 +72,16 @@ function fetchAndRenderHospitals(
   mapManager,
   options = { initialLoad: false, setBounds: false }
 ) {
+  const now = new Date();
+  const currentTime = now.getHours() * 60 + now.getMinutes();
   const emrActive = document
     .getElementById("emr-btn")
     ?.classList.contains("active");
   const nightActive = document
     .getElementById("night-btn")
+    ?.classList.contains("active");
+  const openActive = document
+    .getElementById("ing-btn")
     ?.classList.contains("active");
 
   fetch("/direction/api/hospitals/")
@@ -110,6 +115,17 @@ function fetchAndRenderHospitals(
             !hsp.nightcare
           )
             return false;
+
+          if (openActive) {
+            const [startHour, startMinute] = hsp.start_hour
+              .split(":")
+              .map(Number);
+            const [endHour, endMinute] = hsp.end_hour.split(":").map(Number);
+            const start = startHour * 60 + startMinute;
+            const end = endHour * 60 + endMinute;
+
+            if (currentTime < start || currentTime > end) return false;
+          }
 
           return true;
         });
