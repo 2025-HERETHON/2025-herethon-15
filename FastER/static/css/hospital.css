@@ -17,7 +17,7 @@ body {
   height: 12px;
   flex-shrink: 0;
   margin-left: 19.53px;
-  margin-top: 10px;
+  margin-top: 15px;
   cursor: pointer;
 }
 
@@ -52,8 +52,10 @@ body {
   margin: 0 auto;
   margin-top: 36.88px;
   position: relative;
+  margin-right: 19px;
 
   #SymptomsInput {
+    position: relative;
     width: 317px;
     height: 37px;
     flex-shrink: 0;
@@ -96,8 +98,8 @@ body {
 .Dropdown.visible {
   display: block;
   position: absolute;
+  right: 1px;
   top: calc(100% + 4px); /* input 바로 아래 */
-  left: 0;
   width: 335px;
   height: 673px;
   flex-shrink: 0;

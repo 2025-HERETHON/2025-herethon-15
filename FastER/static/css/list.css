@@ -95,12 +95,14 @@ body {
   background-color: #ff6b00;
   color: #fff;
   border: none;
+  margin-bottom: 5px;
 }
 
 .filter-btn-1.active1 {
   background-color: #f8f8f8;
   color: #333;
   border: 1px solid #e0e0e0;
+  margin-bottom: 5px;
 }
 
 .TitleBox {
@@ -128,7 +130,7 @@ body {
   text-align: center;
   position: relative;
   margin-left: 18px;
-  margin-top: 69px;
+  margin-top: 76px;
 
   /* pre_m_20 */
   font-family: Pretendard;
@@ -162,6 +164,7 @@ body {
 
 .OptionList {
   display: flex;
+  margin-bottom: 10px;
   cursor: pointer;
 
   #optionInput {

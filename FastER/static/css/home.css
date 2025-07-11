@@ -1,5 +1,7 @@
 body {
   margin: 0px;
+  width: 375px;
+  height: 700px;
 }
 
 .Container {

@@ -38,7 +38,4 @@ searchBtn.addEventListener("click", () => {
   }
   // 실제 추천 박스 보이기
   recommendBox.style.display = "block";
-
-  // 실제 POST 전송
-  document.querySelector("form").submit();
 });
