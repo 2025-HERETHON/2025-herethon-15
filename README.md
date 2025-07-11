@@ -29,7 +29,7 @@
   
 | PM | FE | FE | BE | BE |
 | --- | --- | --- | --- | --- |
-| <img style="width:200px" src="https://github.com/user-attachments/assets/26a029a5-1bcd-4654-97d1-3d8e4068f5ed" /> | <img style="width:200px" src="https://github.com/user-attachments/assets/ee14b2c5-aa7f-471f-bff9-972819ef236a" /> | <img style="width:200px;" alt="Image" src="https://github.com/user-attachments/assets/50a48f1f-c312-4a6e-9d6f-f441745d4aa9" /> | <img style="width:200px" src="https://github.com/user-attachments/assets/c3d4d10b-7252-47d3-b424-1c6cdeab326c" /> | <img style="width:200px" src="https://github.com/user-attachments/assets/feff244e-67f3-4b95-b148-4ee476d857a8" /> | 
+| <img width="200" alt="Image" src="https://github.com/user-attachments/assets/1750aadd-8292-489d-b9bf-426317766d17" /> | <img width="200" alt="Image" src="https://github.com/user-attachments/assets/f7bb7c5c-6671-4fd6-b693-2d5e1351725b" /> | <img width="200" alt="Image" src="https://github.com/user-attachments/assets/96e841cc-763b-4da0-a451-ccfc2fd25219" /> | <img width="200" alt="Image" src="https://github.com/user-attachments/assets/355ab040-af2b-42b1-8fed-1ebbc1c82d5b" /> | <img width="200" alt="Image" src="https://github.com/user-attachments/assets/e088254c-68b4-4efb-a9b2-4a39d96bef93" /> | 
 | 성신여자대학교 | 동덕여자대학교 | 숙명여자대학교 | 덕성여자대학교 | 이화여자대학교 |
 | 박시현 | 송이림 | 박세은 | 이가은 | 황규리 |
 | [@psh1213](https://github.com/psh1213)  | [@twolim](https://github.com/twolim) | [@seeun](https://github.com/seeun) | [@egaeuni](https://github.com/egaeuni) | [@gyuuuuri](https://github.com/gyuuuuri) |
