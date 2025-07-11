@@ -663,7 +663,7 @@ body {
   z-index: 9999;
   display: none;
   margin-left: 32px;
-  margin-top: 125px;
+  margin-top: 137px;
 }
 
 #top-image.show {
@@ -674,4 +674,8 @@ body {
   font-size: 10px;
   margin-left: 3px;
   font-weight: 400;
+}
+
+#hos-filter-btn-icon {
+  margin-bottom: 2px;
 }
