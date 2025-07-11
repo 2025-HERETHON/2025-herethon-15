@@ -86,7 +86,7 @@ function getRoute(origin, destination, latNow, lngNow) {
           map: map,
           title: "출발지",
           image: new kakao.maps.MarkerImage(
-            "/static/direction/images/pin_str.svg",
+            "/static/images/pin_str.svg",
             new kakao.maps.Size(40, 40),
             { offset: new kakao.maps.Point(20, 40) }
           ),
@@ -98,7 +98,7 @@ function getRoute(origin, destination, latNow, lngNow) {
           map: map,
           title: "도착지",
           image: new kakao.maps.MarkerImage(
-            "/static/direction/images/pin_emr.svg",
+            "/static/images/pin_emr.svg",
             new kakao.maps.Size(40, 40),
             { offset: new kakao.maps.Point(20, 40) }
           ),

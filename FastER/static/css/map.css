@@ -333,7 +333,7 @@ body {
   border: 0;
   border-radius: 5px;
   background: var(--main, #ff7200);
-  width: 68vw;
+  width: 270px;
   height: 39px;
   color: var(--white, #fff);
   text-align: center;

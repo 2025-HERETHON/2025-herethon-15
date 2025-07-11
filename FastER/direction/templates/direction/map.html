@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>지도 서비스</title>
-    <link rel="stylesheet" href="{% static 'direction/css/map.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/map.css' %}" />
   </head>
   <body>
     <!--<script
@@ -29,6 +29,7 @@
         console.error("❌ 병원 데이터 JSON 파싱 실패:", e);
       }
     </script>-->
+
     <script>
       //메뉴 페이지 이동
       document.getElementById("menu").addEventListener("click", () => {
@@ -180,7 +181,7 @@
       </section>
       <img
         id="top-image"
-        src="{% static 'direction/images/hos-filter.svg' %}"
+        src="{% static 'images/hos-filter.svg' %}"
       />
       <!-- 병원 정보 영역-->
       <section id="info-container" class="info-container">
@@ -313,15 +314,15 @@
     ></script>
 
     <!-- JS 코드 분리 -->
-    <script src="{% static 'direction/js/dropDown.js' %}"></script>
+    <script src="{% static 'js/dropDown.js' %}"></script>
     <script
       type="module"
-      src="{% static 'direction/js/keywordSearch.js' %}"
+      src="{% static 'js/keywordSearch.js' %}"
     ></script>
-    <script src="{% static 'direction/js/locationLoad.js' %}"></script>
+    <script src="{% static 'js/locationLoad.js' %}"></script>
     <script
       type="module"
-      src="{% static 'direction/js/filterSearch.js' %}"
+      src="{% static 'js/filterSearch.js' %}"
     ></script>
   </body>
 </html>

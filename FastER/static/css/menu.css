@@ -1,3 +1,15 @@
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.Title a {
+  color: #ff7200;
+}
+
 .Container {
   position: relative;
   margin: 0 auto;
@@ -12,8 +24,8 @@
   width: 12px;
   height: 12px;
   flex-shrink: 0;
-  margin-left: 19.53px;
-  margin-top: 10px;
+  margin-left: 22px;
+    margin-top: 20px;
   cursor: pointer;
 }
 
@@ -52,6 +64,14 @@ hr {
 .List {
   margin-left: 40px;
   line-height: 52px;
+}
+
+.List a {
+  color: #000;
+}
+
+a {
+  text-decoration: none;
 }
 
 .Text1 {
@@ -146,8 +166,6 @@ hr {
   width: 30.732px;
   height: 30.732px;
   flex-shrink: 0;
-  position: relative;
-  top: 6px;
   margin-right: 5px;
 }
 
@@ -170,7 +188,7 @@ hr {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin-bottom: 20px;
+      margin-bottom: 1px;
 }
 
 .bold {

@@ -1,3 +1,8 @@
+body{
+  margin: 0px;
+}
+
+
 .Container {
   position: relative;
   margin: 0 auto;
@@ -13,7 +18,7 @@
   height: 12px;
   flex-shrink: 0;
   margin-left: 19.53px;
-  margin-top: 10px;
+  margin-top: 15px;
   cursor: pointer;
 }
 
@@ -55,6 +60,14 @@ main {
     flex-shrink: 0;
     aspect-ratio: 225.4/225.4;
   }
+}
+
+.Btn1 a {
+  color: #FFFFFF;
+}
+
+.Btn2 a {
+  color:#ff7200
 }
 
 .Btn1 {
@@ -140,4 +153,8 @@ main {
     position: relative;
     top: 4px;
   }
+}
+
+a {
+  text-decoration: none;
 }

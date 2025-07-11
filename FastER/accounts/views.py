@@ -9,6 +9,9 @@ from django.http import JsonResponse
 from django.views import View
 import json
 
+def home(request):
+    return render(request, 'accounts/home.html')
+
 def map(request):
     return render(request, 'direction/map.html')
 

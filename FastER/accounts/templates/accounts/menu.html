@@ -4,38 +4,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'accounts/css/menu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
     <title>FastER</title>
   </head>
   <body>
     <div class="Container">
       <div class="Close">
-        <img src="{% static 'accounts/css/close.svg' %}" id="close" />
+        <a href="{% url 'accounts:login' %}"><img src="{% static 'images/close.svg' %}" id="close" /></a>
       </div>
       <main>
-      <div class="Title" id="logoutVer">로그인/회원가입하기</div>
+      <div class="Title" id="logoutVer"><a href="{% url 'accounts:login' %}">로그인/회원가입하기</a></div>
       <div class="UserName" id="loginVer">
-        <img src="{% static 'accounts/css/userImage.svg' %}" class="userIcon" />
+        <img src="{% static 'images/userImage.svg' %}" class="userIcon" />
         <span class="userText"><span class="bold">홍길동</span> 님</span>
-        <img src="{% static 'accounts/css/userPointer.svg' %}" class="userPointer" />
+        <img src="{% static 'images/userPointer.svg' %}" class="userPointer" />
       </div>
       <hr/>
       <div class="List">
         <div class="Text1" id="btn1">
-          <img src="{% static 'accounts/css/menuText1.svg' %}" id="text1" />
-          응급실 바로 찾기
+          <img src="{% static 'images/menuText1.svg' %}" id="text1" />
+          <a href="{% url 'direction:map_view' %}">응급실 바로 찾기</a>
         </div>
         <div class="Text2" id="btn2">
-          <img src="{% static 'accounts/css/menuText2.svg' %}" id="text2" />
-          증상 입력 후 병원 찾기
+          <img src="{% static 'images/menuText2.svg' %}" id="text2" />
+          <a href="{% url 'accounts:symptom_search' %}">증상 입력 후 병원 찾기</a>
         </div>
         <div class="Text3" id="btn3">
-          <img src="{% static 'accounts/css/menuText3.svg' %}" id="text3" />
-          지도에서 찾아보기
+          <img src="{% static 'images/menuText3.svg' %}" id="text3" />
+          <a href="{% url 'direction:map_view' %}">지도에서 찾아보기</a>
         </div>
         <div class="Text4" id="btn4">
-          <img src="{% static 'accounts/css/menuText4.svg' %}" id="text4" />
-          병원 리스트
+          <img src="{% static 'images/menuText4.svg' %}" id="text4" />
+          <a href="{% url 'direction:map_view' %}">병원 리스트</a>
         </div>
         </main>
     </div>
