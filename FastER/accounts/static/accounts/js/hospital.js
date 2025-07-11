@@ -10,7 +10,7 @@ document.getElementById("logo").addEventListener("click", () => {
 
 //병원 찾기 이동
 document.getElementById("recommendBtn").addEventListener("click", () => {
-  location.href = "/hospital/map_hos/";
+  location.href = "/direction/";
 });
 
 const input = document.getElementById("SymptomsInput");

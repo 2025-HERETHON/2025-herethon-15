@@ -34,12 +34,12 @@ if (isLoggedIn === "true") {
 
 //응급실 바로 찾기 이동
 document.getElementById("btn1").addEventListener("click", () => {
-  location.href = "/direction/map_emr/";
+  location.href = "/direction/";
 });
 
 //증상 입력 후 병원 찾기 이동
 document.getElementById("btn2").addEventListener("click", () => {
-  location.href = "/accounts/hospital/";
+  location.href = "/symptom/";
 });
 
 //지도에서 찾아보기 이동
