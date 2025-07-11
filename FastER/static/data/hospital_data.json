@@ -5,7 +5,7 @@
     "hos_lat": 37.5868,
     "hos_lng": 127.0276,
     "phone": "02-1577-0083",
-    "is_emergency": true,
+    "is_emergency": false,
     "nightcare": false,
     "start_hour": "08:30",
     "end_hour": "17:30",
