@@ -83,6 +83,9 @@ function fetchAndRenderHospitals(
   const openActive = document
     .getElementById("ing-btn")
     ?.classList.contains("active");
+  const neActive = document
+    .getElementById("ne-btn")
+    ?.classList.contains("active");
 
   fetch("/direction/api/hospitals/")
     .then((res) => res.json())
@@ -113,6 +116,12 @@ function fetchAndRenderHospitals(
               .getElementById("night-btn")
               ?.classList.contains("active") &&
             !hsp.nightcare
+          )
+            return false;
+
+          if (
+            document.getElementById("ne-btn")?.classList.contains("active") &&
+            !hsp.specialties.includes("내과")
           )
             return false;
 
