@@ -78,7 +78,7 @@ function getRoute(origin, destination, latNow, lngNow) {
         setTimeout(() => {
           map.panBy(0, 80);
         }, 500);
-        map.setLevel(8);
+        map.setLevel(9);
 
         // 출발지 마커
         new kakao.maps.Marker({
