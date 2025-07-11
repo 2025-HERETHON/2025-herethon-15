@@ -15,7 +15,9 @@
         /></a>
       </div>
       <div class="Logo">
-        <img src="{% static 'images/logo.svg' %}" id="logo" />
+        <a href="{% url 'accounts:home'%}">
+          <img src="{% static 'images/logo.svg' %}" id="logo"
+        /></a>
       </div>
       <!-- 필터 버튼 영역 -->
       <section id="category" class="filter-container">

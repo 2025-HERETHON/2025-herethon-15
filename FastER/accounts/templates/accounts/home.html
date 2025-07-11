@@ -24,14 +24,12 @@
         <div class="Character">
           <img src="{% static 'images/character.png' %}" id="character" />
         </div>
-        <div class="Btn1" id="btn1">
-          <a href="{% url 'direction:map_emr_view'%}">응급실 바로 찾기</a>
-        </div>
-        <div class="Btn2" id="btn2">
-          <a href="{% url 'accounts:symptom_search'%}"
-            >증상 입력 후 병원 찾기</a
-          >
-        </div>
+        <a href="{% url 'direction:map_emr_view'%}">
+          <div class="Btn1" id="btn1">응급실 바로 찾기</div></a
+        >
+        <a href="{% url 'accounts:symptom_search'%}">
+          <div class="Btn2" id="btn2">증상 입력 후 병원 찾기</div></a
+        >
       </main>
       <div class="SubText">
         <div class="SearchText1">

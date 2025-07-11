@@ -60,6 +60,7 @@ body {
 /* 개별 필터 버튼 */
 .filter-btn {
   flex: 0 0 auto; /* 줄 바꿈 방지 */
+  position: relative;
   padding: 4.5px 10px;
   font-size: 13.5px;
   border: 1px solid #e0e0e0;
@@ -95,7 +96,6 @@ body {
   background-color: #ff6b00;
   color: #fff;
   border: none;
-  margin-bottom: 5px;
 }
 
 .filter-btn-1.active1 {
