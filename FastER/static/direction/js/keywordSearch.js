@@ -2,15 +2,26 @@ import { MapManager } from "./mapManager.js";
 import { SearchManager } from "./searchManager.js";
 import { showNearbyEmergencyHospitals } from "./emergencyHospital.js";
 
-const imageSrc = "/static/direction/images/pin_emr.svg";
+const emrImageSrc = "/static/direction/images/pin_emr.svg";
+const basicImageSrc = "/static/direction/images/pin_hos.svg";
+const hereImageSrc = "/static/direction/images/pin_here.svg";
 const imageSize = new kakao.maps.Size(40, 40);
 const imageOption = { offset: new kakao.maps.Point(20, 40) };
 const markerImage = new kakao.maps.MarkerImage(
-  imageSrc,
+  emrImageSrc,
   imageSize,
   imageOption
 );
-
+const basicmarkerImage = new kakao.maps.MarkerImage(
+  basicImageSrc,
+  imageSize,
+  imageOption
+);
+const heremarkerImage = new kakao.maps.MarkerImage(
+  hereImageSrc,
+  imageSize,
+  imageOption
+);
 export const mapManager = new MapManager(
   "map",
   {
@@ -19,6 +30,9 @@ export const mapManager = new MapManager(
   },
   markerImage
 );
+
+mapManager.basicmarkerImage = basicmarkerImage;
+mapManager.heremarkerImage = heremarkerImage;
 
 const searchManager = new SearchManager("keyword", "placesList", mapManager);
 

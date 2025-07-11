@@ -16,7 +16,7 @@ export class MapManager {
     });
   }
 
-  // 🔷 병원 마커 추가
+  // 병원 마커 추가
   addHospitalMarker(position, hsp) {
     const marker = new kakao.maps.Marker({
       position,
@@ -50,7 +50,7 @@ export class MapManager {
     return marker;
   }
 
-  // 🔷 검색 마커 추가
+  // 검색 마커 추가
   addSearchMarker(position, place) {
     const marker = new kakao.maps.Marker({
       position,
@@ -82,13 +82,13 @@ export class MapManager {
     return marker;
   }
 
-  // 🔸 병원 마커 제거
+  // 병원 마커 제거
   removeHospitalMarkers() {
     this.hospitalMarkers.forEach((m) => m.setMap(null));
     this.hospitalMarkers = [];
   }
 
-  // 🔸 검색 마커 제거
+  // 검색 마커 제거
   removeSearchMarkers() {
     this.searchMarkers.forEach((m) => m.setMap(null));
     this.searchMarkers = [];
