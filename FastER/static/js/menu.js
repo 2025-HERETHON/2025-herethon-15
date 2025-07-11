@@ -8,15 +8,7 @@ sessionStorage.setItem("prePage", document.referrer || "/accounts/home/");
 
 // X 버튼 클릭 이벤트 처리
 document.getElementById("close").addEventListener("click", () => {
-  const justLoggedIn = sessionStorage.getItem("justLoggedIn");
-  const prePage = sessionStorage.getItem("prePage") || "/accounts/home/";
-
-  if (justLoggedIn === "true") {
-    sessionStorage.removeItem("justLoggedIn");
-    location.href = "/accounts/home/"; // 로그인 직후엔 메인으로 이동
-  } else {
-    location.href = prePage; // 아니면 이전 페이지로 이동
-  }
+  window.history.back();
 });
 
 const isLoggedIn = localStorage.getItem("isLoggedIn");
