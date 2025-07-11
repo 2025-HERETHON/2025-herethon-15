@@ -1,18 +1,3 @@
-//메뉴 페이지 이동
-document.getElementById("menu").addEventListener("click", () => {
-  location.href = "/accounts/menu/";
-});
-
-//홈 이동
-document.getElementById("logo").addEventListener("click", () => {
-  location.href = "/accounts/home/";
-});
-
-//병원 찾기 이동
-document.getElementById("recommendBtn").addEventListener("click", () => {
-  location.href = "/hos/";
-});
-
 const input = document.getElementById("SymptomsInput");
 const dropdown = document.getElementById("dropdown");
 const options = document.querySelectorAll(".Option");
@@ -26,34 +11,34 @@ input.addEventListener("click", () => {
   recommendBox.style.display = "none";
 });
 
-//드롭다운 옵션 클릭하면 input에 값 넣기
+// 옵션 클릭 시 input에 값 입력 + 처리
 options.forEach((option) => {
   option.addEventListener("click", () => {
-    options.forEach((opt) => {
-      opt.classList.remove("selected");
-    });
+    options.forEach((opt) => opt.classList.remove("selected"));
 
-    input.value = option.textContent;
+    const value = option.textContent.trim();
+    input.value = value;
     option.classList.add("selected");
     dropdown.classList.remove("visible");
     searchBtn.style.display = "block";
     searchBtn.classList.add("after");
 
-    //직접 입력 클릭 시
-    if (option.textContent === "직접 입력") {
+    if (value === "직접 입력") {
       input.removeAttribute("readonly");
       input.focus();
     }
   });
 });
 
-//직접 입력 클릭 시
-if (options.textContent === "직접 입력") {
-  input.removeAttribute("readonly");
-  input.focus();
-}
-
-//진료과 조회 시 결과
+// 조회 버튼 누르면 결과 박스 보여주고 form 제출
 searchBtn.addEventListener("click", () => {
+  if (input.value.trim() === "") {
+    alert("증상을 입력해 주세요!");
+    return;
+  }
+  // 실제 추천 박스 보이기
   recommendBox.style.display = "block";
+
+  // 실제 POST 전송
+  document.querySelector("form").submit();
 });
