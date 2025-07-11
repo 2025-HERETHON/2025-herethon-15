@@ -93,7 +93,7 @@ function fetchAndRenderHospitals(
         // 초기 로딩: 사용자 위치 기준 반경 5km 내 모든 병원 (필터 X)
         nearbyHospitals = data.hospitals.filter((hsp) => {
           const dist = getDistance(lat, lng, hsp.hos_lat, hsp.hos_lng);
-          return dist <= MAX_RANGE; // ❗ 필터 없음
+          return dist <= MAX_RANGE;
         });
       } else {
         // 필터 적용 (버튼 상태 기반)

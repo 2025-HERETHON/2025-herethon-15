@@ -8,28 +8,6 @@
     <link rel="stylesheet" href="{% static 'css/map.css' %}" />
   </head>
   <body>
-    <!--<script
-      id="hospital-data"
-      type="application/json"
-      data-json="{{ hospitals_json }}"
-    ></script>
-
-    <script>
-      let hospitalData = [];
-
-      try {
-        const raw = document.getElementById("hospital-data").dataset.json;
-        if (raw && raw.trim()) {
-          hospitalData = JSON.parse(raw);
-          console.log("✅ 병원 데이터 파싱 성공", hospitalData);
-        } else {
-          console.warn("⚠ 병원 데이터 비어 있음");
-        }
-      } catch (e) {
-        console.error("❌ 병원 데이터 JSON 파싱 실패:", e);
-      }
-    </script>-->
-
     <main class="map-container">
       <header>
         <a href="{% url 'accounts:menu'%}"
@@ -109,6 +87,7 @@
             />
           </svg>
         </a>
+        <div class="logo-box"></div>
       </header>
       <!-- 검색 입력창 -->
       <section>
