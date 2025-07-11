@@ -4,6 +4,19 @@ let lastCenter = null;
 const MIN_DISTANCE_KM = 0.3;
 const MAX_RANGE = 5;
 
+const yOffsetTable = {
+  1: 0.0002,
+  2: 0.0004,
+  3: 0.0008,
+  4: 0.0015,
+  5: 0.003,
+  6: 0.007,
+  7: 0.015,
+  8: 0.03,
+  9: 0.007,
+  10: 0.009,
+};
+
 export function showNearbyEmergencyHospitals(mapManager) {
   if (!navigator.geolocation) {
     alert("위치 정보를 지원하지 않는 브라우저입니다.");
@@ -131,8 +144,11 @@ function fetchAndRenderHospitals(
         });
 
         kakao.maps.event.addListener(marker, "click", () => {
+          const zoomLevel = mapManager.map.getLevel();
+          console.log(zoomLevel);
+          const offsetY = yOffsetTable[zoomLevel] || -0.002;
           const offsetPos = new kakao.maps.LatLng(
-            position.getLat() - 0.005,
+            position.getLat() - offsetY,
             position.getLng()
           );
           mapManager.map.panTo(offsetPos);
