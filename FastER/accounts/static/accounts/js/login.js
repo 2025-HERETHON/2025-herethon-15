@@ -1,6 +1,6 @@
 //메뉴로 이동
 document.getElementById("menu").addEventListener("click", () => {
-  location.href = "menu.html";
+  location.href = "/accounts/menu/";
 });
 
 const emailInput = document.getElementById("emailInput");
@@ -42,7 +42,7 @@ loginBtn.addEventListener("click", () => {
   if (email === "faster1@gmail.com" && password === "fast123") {
     localStorage.setItem("isLoggedIn", "true");
     sessionStorage.setItem("justLoggedIn", "true");
-    location.href = "menu.html";
+    location.href = "/accounts/menu/";
   } else if (email === "faster1@gmail.com" && password !== "fast123") {
     pwErrorMsg.textContent = "비밀번호가 일치하지 않습니다.";
     pwErrorMsg.classList.add("visible");

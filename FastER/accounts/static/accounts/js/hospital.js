@@ -1,6 +1,11 @@
 //메뉴 페이지 이동
 document.getElementById("menu").addEventListener("click", () => {
-  location.href = "menu.html";
+  location.href = "/accounts/menu/";
+});
+
+//병원 찾기 이동
+document.getElementById("recommendBtn").addEventListener("click", () => {
+  location.href = "/hospital/map_hos/";
 });
 
 const input = document.getElementById("SymptomsInput");

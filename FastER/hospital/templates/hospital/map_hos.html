@@ -29,11 +29,18 @@
         console.error("❌ 병원 데이터 JSON 파싱 실패:", e);
       }
     </script>-->
+    <script>
+      //메뉴 페이지 이동
+      document.getElementById("menu").addEventListener("click", () => {
+        location.href = "/accounts/menu/";
+      });
+    </script>
 
     <main class="map-container">
       <header>
         <svg
           class="menu"
+          id="menu"
           xmlns="http://www.w3.org/2000/svg"
           width="21"
           height="15"

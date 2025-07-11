@@ -1,6 +1,6 @@
 //로그인 페이지 이동
 document.getElementById("logoutVer").addEventListener("click", () => {
-  location.href = "login.html";
+  location.href = "/accounts/login/";
 });
 
 //메뉴창 열릴 때 직전 페이지 저장
@@ -13,7 +13,8 @@ document.getElementById("close").addEventListener("click", () => {
 
   if (justLoggedIn === "true") {
     sessionStorage.removeItem("justLoggedIn");
-    location.href = "home.html"; // 로그인 직후면 메인 화면으로
+    location.href = "/accounts/home/";
+    // 로그인 직후면 메인 화면으로
   } else {
     location.href = prePage; // 아니면 이전 화면으로
   }
@@ -31,9 +32,24 @@ if (isLoggedIn === "true") {
   document.getElementById("logoutVer").style.display = "block";
 }
 
+//응급실 바로 찾기 이동
+document.getElementById("btn1").addEventListener("click", () => {
+  location.href = "/direction/map_emr/";
+});
+
 //증상 입력 후 병원 찾기 이동
 document.getElementById("btn2").addEventListener("click", () => {
-  location.href = "hospital.html";
+  location.href = "/accounts/hospital/";
+});
+
+//지도에서 찾아보기 이동
+document.getElementById("btn3").addEventListener("click", () => {
+  location.href = "/direction/map/";
+});
+
+//병원 리스트 이동
+document.getElementById("btn3").addEventListener("click", () => {
+  location.href = "/hospital/list/";
 });
 
 //로그아웃 테스트용 임시 코드

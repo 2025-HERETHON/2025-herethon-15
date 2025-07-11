@@ -8,10 +8,18 @@
     <link rel="stylesheet" href="{% static 'direction/css/map.css' %}" />
   </head>
   <body>
+    <script>
+      //메뉴 페이지 이동
+      document.getElementById("menu").addEventListener("click", () => {
+        location.href = "/accounts/menu/";
+      });
+    </script>
+
     <main class="map-container">
       <header>
         <svg
           class="menu"
+          id="menu"
           xmlns="http://www.w3.org/2000/svg"
           width="21"
           height="15"
