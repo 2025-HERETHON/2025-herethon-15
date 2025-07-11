@@ -37,7 +37,7 @@ main {
 
 .Logo {
   position: relative;
-  top: 60px;
+  top: 50px;
   width: 257.14px;
   height: 49.73px;
 }
@@ -53,18 +53,19 @@ main {
   font-weight: 500;
   line-height: normal;
   position: relative;
-  top: 78px;
+  top: 68px;
 }
 
 .Character {
   position: relative;
-  margin-top: 102px;
+  margin-top: 83px;
 
   #character {
     width: 225.396px;
     height: 225.396px;
     flex-shrink: 0;
     aspect-ratio: 225.4/225.4;
+    margin-bottom: -10px;
   }
 }
 
