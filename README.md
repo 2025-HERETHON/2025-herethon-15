@@ -32,7 +32,7 @@
 | <img width="200" alt="Image" src="https://github.com/user-attachments/assets/1750aadd-8292-489d-b9bf-426317766d17" /> | <img width="200" alt="Image" src="https://github.com/user-attachments/assets/f7bb7c5c-6671-4fd6-b693-2d5e1351725b" /> | <img width="200" alt="Image" src="https://github.com/user-attachments/assets/96e841cc-763b-4da0-a451-ccfc2fd25219" /> | <img width="200" alt="Image" src="https://github.com/user-attachments/assets/355ab040-af2b-42b1-8fed-1ebbc1c82d5b" /> | <img width="200" alt="Image" src="https://github.com/user-attachments/assets/e088254c-68b4-4efb-a9b2-4a39d96bef93" /> | 
 | 성신여자대학교 | 동덕여자대학교 | 숙명여자대학교 | 덕성여자대학교 | 이화여자대학교 |
 | 박시현 | 송이림 | 박세은 | 이가은 | 황규리 |
-| [@psh1213](https://github.com/psh1213)  | [@twolim](https://github.com/twolim) | [@seeun](https://github.com/seeun) | [@egaeuni](https://github.com/egaeuni) | [@gyuuuuri](https://github.com/gyuuuuri) |
+| [@psh1213](https://github.com/psh1213)  | [@twolim](https://github.com/twolim) | [@JMUNG1](https://github.com/JMUNG1) | [@egaeuni](https://github.com/egaeuni) | [@gyuuuuri](https://github.com/gyuuuuri) |
 
 
 - **폴더 구조**
